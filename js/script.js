@@ -191,20 +191,19 @@ function initParallaxEffect() {
 
   // Adicionar evento de movimento do mouse para o efeito de paralaxe
   homeSection.addEventListener("mousemove", (e) => {
-    const x = (window.innerWidth / 2 - e.clientX) / 25;
-    const y = (window.innerHeight / 2 - e.clientY) / 25;
+    // Valores maiores aqui reduzem a intensidade do movimento (de 25 para 80)
+    const x = (window.innerWidth / 2 - e.clientX) / 80;
+    const y = (window.innerHeight / 2 - e.clientY) / 80;
 
-    // Aplicar transformação 3D conforme o movimento do mouse
+    // Aplicar transformação 3D conforme o movimento do mouse (com movimento reduzido)
     if (title) {
-      title.style.transform = `translate3d(${x}px, ${y}px, 20px) rotateX(${
-        y / 10
-      }deg) rotateY(${-x / 10}deg)`;
+      title.style.transform = `translate3d(${x}px, ${y}px, 10px) rotateX(${
+        y / 30
+      }deg) rotateY(${-x / 30}deg)`;
     }
 
     if (subtitle) {
-      subtitle.style.transform = `translate3d(${x * 0.5}px, ${
-        y * 0.5
-      }px, 10px)`;
+      subtitle.style.transform = `translate3d(${x * 0.5}px, ${y * 0.5}px, 5px)`;
     }
   });
 

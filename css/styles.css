@@ -341,16 +341,9 @@ header .logo-container img {
   background-color: black;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23222' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 40%;
+  background-position: center;
   animation: animateThreadsBg 60s linear infinite;
-}
-
-@keyframes animateWavesBg {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
+  opacity: 0.7;
 }
 
 @keyframes animateThreadsBg {
@@ -359,6 +352,15 @@ header .logo-container img {
   }
   100% {
     background-position: 1000px 0;
+  }
+}
+
+@keyframes animateWavesBg {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
   }
 }
 
@@ -2584,5 +2586,876 @@ nav.md\:block a[href="#membros"] .star-icon {
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+/* Estilos especiais para a seção do Corujão */
+section#corujao {
+  background: linear-gradient(135deg, #111111, #000000);
+  position: relative;
+  overflow: hidden;
+}
+
+section#corujao::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(255, 255, 255, 0.03) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(255, 255, 255, 0.02) 0%,
+      transparent 40%
+    );
+  z-index: 1;
+  pointer-events: none;
+}
+
+section#corujao::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      0deg,
+      transparent 97%,
+      rgba(255, 255, 255, 0.1) 98%,
+      transparent 100%
+    ),
+    linear-gradient(
+      90deg,
+      transparent 97%,
+      rgba(255, 255, 255, 0.1) 98%,
+      transparent 100%
+    );
+  background-size: 35px 35px;
+  opacity: 0.15;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Título do Corujão com efeito neon branco */
+section#corujao h2.glitch-text {
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7),
+    0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+section#corujao h2.glitch-text::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.7),
+    transparent
+  );
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.3);
+  animation: corujaoBorderPulse 2s infinite alternate;
+}
+
+@keyframes corujaoBorderPulse {
+  0% {
+    width: 100px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    width: 150px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Container do próximo Corujão com efeito neon */
+section#corujao .max-w-4xl.mx-auto.bg-gray-900 {
+  background: linear-gradient(
+    to bottom,
+    rgba(30, 30, 30, 0.8),
+    rgba(10, 10, 10, 0.9)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1),
+    0 0 30px rgba(255, 255, 255, 0.05);
+  position: relative;
+  z-index: 5;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+section#corujao .max-w-4xl.mx-auto.bg-gray-900:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2),
+    0 0 40px rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+/* Círculo do relógio com efeito neon */
+section#corujao .w-32.h-32.bg-black {
+  background: radial-gradient(circle at center, #1a1a1a, #000000);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1),
+    0 0 20px rgba(255, 255, 255, 0.05), inset 0 0 20px rgba(255, 255, 255, 0.05);
+  animation: clockPulse 4s infinite alternate;
+}
+
+@keyframes clockPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1),
+      0 0 20px rgba(255, 255, 255, 0.05),
+      inset 0 0 20px rgba(255, 255, 255, 0.03);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2),
+      0 0 30px rgba(255, 255, 255, 0.1),
+      inset 0 0 30px rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Ícone do relógio com animação */
+section#corujao .fas.fa-clock {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.3);
+  animation: iconGlow 2s infinite alternate;
+}
+
+@keyframes iconGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3),
+      0 0 20px rgba(255, 255, 255, 0.2);
+    transform: scale(1);
+  }
+  100% {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
+      0 0 30px rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+  }
+}
+
+/* Título do próximo Corujão */
+section#corujao h3.metallic-text {
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    #f0f0f0,
+    #e0e0e0,
+    #f0f0f0,
+    #ffffff
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.5px;
+  animation: shineWhite 3s infinite linear;
+}
+
+@keyframes shineWhite {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Informações de horário com efeito neon */
+section#corujao p {
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+section#corujao p:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  transform: translateX(5px);
+}
+
+section#corujao p i {
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Botão "Participar" com estilo neon branco */
+section#corujao .gooey-btn {
+  background: linear-gradient(45deg, #333333, #111111);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+section#corujao .gooey-btn::before {
+  background: linear-gradient(45deg, #ffffff, #e0e0e0);
+}
+
+section#corujao .gooey-btn:hover {
+  color: #000000;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3),
+    0 0 30px rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Última edições título */
+section#corujao .mt-16 h3.metallic-text {
+  position: relative;
+  padding-bottom: 15px;
+}
+
+section#corujao .mt-16 h3.metallic-text::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.7),
+    transparent
+  );
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  animation: lineWidth 3s infinite alternate;
+}
+
+@keyframes lineWidth {
+  0% {
+    width: 80px;
+    opacity: 0.5;
+  }
+  100% {
+    width: 150px;
+    opacity: 1;
+  }
+}
+
+/* Botões do carrossel */
+section#corujao .carousel-btn {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+section#corujao .carousel-btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Estilos especiais para a seção do Fundador */
+section#fundador {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(125deg, #0f0f0f, #050505, #000000);
+}
+
+section#fundador::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(131, 58, 180, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(252, 175, 69, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(225, 48, 108, 0.05) 0%,
+      transparent 60%
+    );
+  z-index: 1;
+  pointer-events: none;
+}
+
+section#fundador::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+      45deg,
+      transparent 98%,
+      rgba(225, 48, 108, 0.1) 99%,
+      transparent 100%
+    ),
+    linear-gradient(
+      135deg,
+      transparent 98%,
+      rgba(131, 58, 180, 0.1) 99%,
+      transparent 100%
+    );
+  background-size: 30px 30px;
+  opacity: 0.2;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Título do Fundador com efeito Instagram */
+section#fundador h2.glitch-text {
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+section#fundador h2.glitch-text::after {
+  background: linear-gradient(
+    90deg,
+    rgba(252, 175, 69, 0.8),
+    rgba(225, 48, 108, 0.8),
+    rgba(131, 58, 180, 0.8)
+  );
+  box-shadow: 0 0 10px rgba(225, 48, 108, 0.5), 0 0 20px rgba(131, 58, 180, 0.3);
+  animation: instagramGradient 4s infinite linear;
+}
+
+@keyframes instagramGradient {
+  0% {
+    background-position: 0% 50%;
+    width: 100px;
+  }
+  50% {
+    background-position: 100% 50%;
+    width: 160px;
+  }
+  100% {
+    background-position: 0% 50%;
+    width: 100px;
+  }
+}
+
+/* Moldura Instagram para a foto do fundador */
+section#fundador .rounded-full {
+  position: relative;
+  border: none !important;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  z-index: 10;
+}
+
+section#fundador .rounded-full::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  padding: 8px;
+  background: linear-gradient(
+    45deg,
+    #f09433,
+    #e6683c,
+    #dc2743,
+    #cc2366,
+    #bc1888,
+    #8a33aa,
+    #515bd4,
+    #0095f6
+  );
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: instagramBorder 3s infinite linear;
+  z-index: 1;
+  filter: drop-shadow(0 0 10px rgba(225, 48, 108, 0.8))
+    drop-shadow(0 0 15px rgba(131, 58, 180, 0.7))
+    drop-shadow(0 0 20px rgba(252, 175, 69, 0.6));
+}
+
+/* Adicionar um segundo brilho externo mais intenso */
+section#fundador .rounded-full::after {
+  content: "";
+  position: absolute;
+  inset: -15px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(225, 48, 108, 0.5) 0%,
+    rgba(131, 58, 180, 0.3) 30%,
+    rgba(252, 175, 69, 0.2) 60%,
+    transparent 70%
+  );
+  z-index: 0;
+  animation: pulseInstaGlow 2s infinite alternate ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes pulseInstaGlow {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes instagramBorder {
+  0% {
+    background-position: 0% 50%;
+    filter: drop-shadow(0 0 10px rgba(225, 48, 108, 0.8))
+      drop-shadow(0 0 15px rgba(131, 58, 180, 0.7))
+      drop-shadow(0 0 20px rgba(252, 175, 69, 0.6));
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: drop-shadow(0 0 15px rgba(252, 175, 69, 0.8))
+      drop-shadow(0 0 20px rgba(225, 48, 108, 0.7))
+      drop-shadow(0 0 25px rgba(131, 58, 180, 0.6));
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: drop-shadow(0 0 10px rgba(225, 48, 108, 0.8))
+      drop-shadow(0 0 15px rgba(131, 58, 180, 0.7))
+      drop-shadow(0 0 20px rgba(252, 175, 69, 0.6));
+  }
+}
+
+section#fundador .rounded-full:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+section#fundador .rounded-full:hover::before {
+  background-size: 400% 400%;
+  animation: instagramBorder 2s infinite linear;
+  filter: drop-shadow(0 0 15px rgba(225, 48, 108, 1))
+    drop-shadow(0 0 25px rgba(131, 58, 180, 0.9))
+    drop-shadow(0 0 35px rgba(252, 175, 69, 0.8));
+}
+
+section#fundador .rounded-full:hover::after {
+  animation: pulseInstaGlow 1s infinite alternate ease-in-out;
+  opacity: 1;
+}
+
+/* Adicionar overlay gradiente na foto do fundador */
+section#fundador .rounded-full img {
+  position: relative;
+  z-index: 0;
+  transition: transform 0.5s ease;
+}
+
+section#fundador .rounded-full:hover img {
+  transform: scale(1.1);
+}
+
+section#fundador .rounded-full::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  opacity: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(252, 175, 69, 0.2),
+    rgba(225, 48, 108, 0.2),
+    rgba(131, 58, 180, 0.2)
+  );
+  z-index: 2;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: overlay;
+}
+
+section#fundador .rounded-full:hover::after {
+  opacity: 1;
+}
+
+/* Estilizando as informações do fundador */
+section#fundador .max-w-lg h3.metallic-text {
+  background: linear-gradient(
+    to right,
+    #f9f9f9,
+    #e0e0e0,
+    #f9f9f9,
+    #e0e0e0,
+    #f9f9f9
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.2);
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  padding: 3px 0;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  animation: shimmerFound 3s infinite linear;
+}
+
+@keyframes shimmerFound {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+section#fundador .max-w-lg h3.metallic-text:hover {
+  background: linear-gradient(
+    45deg,
+    #f09433,
+    #e6683c,
+    #dc2743,
+    #cc2366,
+    #bc1888,
+    #8a3ab9,
+    #4c68d7,
+    #6dc4e6
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 0 5px rgba(220, 39, 67, 0.7), 0 0 10px rgba(220, 39, 67, 0.5),
+    0 0 15px rgba(138, 58, 185, 0.5), 0 0 20px rgba(138, 58, 185, 0.3);
+  letter-spacing: 1.5px;
+  transform: scale(1.05);
+}
+
+section#fundador .max-w-lg h3.metallic-text::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 30%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(252, 175, 69, 0.8),
+    rgba(225, 48, 108, 0.8),
+    rgba(131, 58, 180, 0.8)
+  );
+  animation: instaLineWidth 3s infinite alternate ease-in-out;
+}
+
+@keyframes instaLineWidth {
+  0% {
+    width: 30%;
+    opacity: 0.5;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+/* Estilizando os parágrafos */
+section#fundador .max-w-lg p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+section#fundador .max-w-lg p:hover {
+  color: white;
+  text-shadow: 0 1px 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Ícones de redes sociais com efeito */
+section#fundador .flex.gap-4 a {
+  position: relative;
+  transition: all 0.3s ease;
+  padding: 8px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+section#fundador .flex.gap-4 a:hover {
+  transform: translateY(-5px);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+section#fundador .flex.gap-4 a:hover i.fa-instagram {
+  background: linear-gradient(
+    45deg,
+    #f09433,
+    #e6683c,
+    #dc2743,
+    #cc2366,
+    #bc1888
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: pulseInsta 1s infinite alternate;
+}
+
+@keyframes pulseInsta {
+  0% {
+    text-shadow: 0 0 5px rgba(225, 48, 108, 0.5),
+      0 0 10px rgba(131, 58, 180, 0.3);
+  }
+  100% {
+    text-shadow: 0 0 8px rgba(225, 48, 108, 0.7),
+      0 0 15px rgba(131, 58, 180, 0.5), 0 0 20px rgba(252, 175, 69, 0.3);
+  }
+}
+
+section#fundador .flex.gap-4 a:hover i.fa-youtube {
+  color: #ff0000;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.5), 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+/* Adicionar partículas de fundo */
+section#fundador .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Estilizando as informações do fundador - Nome do Koji */
+section#fundador .max-w-lg h3.metallic-text {
+  background: linear-gradient(
+    to right,
+    #f9f9f9,
+    #e0e0e0,
+    #f9f9f9,
+    #e0e0e0,
+    #f9f9f9
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.2);
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  padding: 3px 0;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  animation: shimmerFound 3s infinite linear;
+}
+
+@keyframes shimmerFound {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+section#fundador .max-w-lg h3.metallic-text:hover {
+  background: linear-gradient(
+    45deg,
+    #f09433,
+    #e6683c,
+    #dc2743,
+    #cc2366,
+    #bc1888,
+    #8a3ab9,
+    #4c68d7,
+    #6dc4e6
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 0 5px rgba(220, 39, 67, 0.7), 0 0 10px rgba(220, 39, 67, 0.5),
+    0 0 15px rgba(138, 58, 185, 0.5), 0 0 20px rgba(138, 58, 185, 0.3);
+  letter-spacing: 1.5px;
+  transform: scale(1.05);
+}
+
+section#fundador .max-w-lg h3.metallic-text::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 30%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(252, 175, 69, 0.8),
+    rgba(225, 48, 108, 0.8),
+    rgba(131, 58, 180, 0.8)
+  );
+  opacity: 0.7;
+  transition: all 0.4s ease;
+  animation: instaLineWidth 3s infinite alternate ease-in-out;
+}
+
+section#fundador .max-w-lg h3.metallic-text:hover::after {
+  width: 100%;
+  height: 3px;
+  opacity: 1;
+  box-shadow: 0 0 5px rgba(225, 48, 108, 0.8), 0 0 10px rgba(131, 58, 180, 0.5);
+}
+
+/* Estilo para o crédito da LeapFrogTech no rodapé */
+.leapfrog-credit {
+  font-size: 0.9rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  position: relative;
+  color: #00ffdd;
+  text-shadow: 0 0 3px rgba(0, 255, 221, 0.8), 0 0 5px rgba(0, 255, 221, 0.6);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 40, 50, 0.8),
+    rgba(0, 20, 40, 0.9),
+    rgba(0, 40, 50, 0.8)
+  );
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 255, 221, 0.4);
+  box-shadow: 0 0 6px rgba(0, 255, 221, 0.3), 0 0 12px rgba(0, 255, 221, 0.1),
+    inset 0 0 4px rgba(0, 255, 221, 0.1);
+  display: inline-block;
+  margin-top: 1rem;
+  animation: leapfrogPulse 2.5s infinite alternate;
+  transition: all 0.4s ease;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.leapfrog-credit::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 255, 221, 0.2) 50%,
+    transparent 100%
+  );
+  animation: leapfrogSweep 4s infinite;
+  z-index: -1;
+}
+
+.leapfrog-credit::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 221, 0.05) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  animation: leapfrogGlow 4s infinite alternate;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.leapfrog-credit:hover {
+  color: #ffffff;
+  text-shadow: 0 0 4px rgba(0, 255, 221, 0.9), 0 0 7px rgba(0, 255, 221, 0.7);
+  transform: scale(1.03) translateY(-2px);
+  box-shadow: 0 0 10px rgba(0, 255, 221, 0.4), 0 0 20px rgba(0, 255, 221, 0.2),
+    0 5px 15px rgba(0, 0, 0, 0.2), inset 0 0 8px rgba(0, 255, 221, 0.2);
+  border-color: rgba(0, 255, 221, 0.6);
+  letter-spacing: 1.2px;
+}
+
+.leapfrog-credit i {
+  display: inline-block;
+  color: #00ffdd;
+  text-shadow: 0 0 5px rgba(0, 255, 221, 0.7);
+  font-size: 0.9em;
+  animation: leapfrogIcons 3s infinite alternate;
+}
+
+.leapfrog-credit:hover i {
+  animation: leapfrogIconsHover 1s infinite alternate;
+}
+
+@keyframes leapfrogPulse {
+  0% {
+    opacity: 0.85;
+    text-shadow: 0 0 5px rgba(0, 255, 221, 0.7), 0 0 10px rgba(0, 255, 221, 0.5);
+    border-color: rgba(0, 255, 221, 0.3);
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(0, 255, 221, 0.9), 0 0 16px rgba(0, 255, 221, 0.7),
+      0 0 24px rgba(0, 255, 221, 0.5);
+    border-color: rgba(0, 255, 221, 0.6);
+  }
+}
+
+@keyframes leapfrogSweep {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes leapfrogGlow {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes leapfrogIcons {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes leapfrogIconsHover {
+  0% {
+    transform: scale(1.1) rotate(-5deg);
+  }
+  100% {
+    transform: scale(1.3) rotate(5deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .leapfrog-credit {
+    font-size: 1rem;
+    padding: 10px 15px;
+    letter-spacing: 1px;
   }
 }

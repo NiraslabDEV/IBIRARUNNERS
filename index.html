@@ -14,6 +14,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   </head>
   <body class="bg-black text-gray-200 font-sans">
     <!-- Overlay para fechar o menu -->
@@ -44,12 +45,9 @@
               >
             </li>
             <li>
-              <a href="#membros" class="text-xl relative">
-                <span class="star-icon">✶</span>
-                Seja Membro
-                <span class="underline"></span>
-                <span class="shine"></span>
-              </a>
+              <a href="#membros" class="hover:text-silver transition-colors"
+                >Seja Membro</a
+              >
             </li>
             <li>
               <a href="#eventos" class="hover:text-silver transition-colors"
@@ -91,14 +89,7 @@
       <div id="mobile-menu" class="hidden bg-black/95 w-full absolute z-50">
         <ul class="flex flex-col items-center py-6 space-y-4">
           <li><a href="#home" class="text-xl">Home</a></li>
-          <li>
-            <a href="#membros" class="text-xl relative">
-              <span class="star-icon">✶</span>
-              Seja Membro
-              <span class="underline"></span>
-              <span class="shine"></span>
-            </a>
-          </li>
+          <li><a href="#membros" class="text-xl">Seja Membro</a></li>
           <li><a href="#eventos" class="text-xl">Eventos</a></li>
           <li><a href="#patrocinios" class="text-xl">Patrocínios</a></li>
           <li><a href="#strava" class="text-xl text-orange-500">Strava</a></li>
@@ -111,16 +102,16 @@
 
     <!-- Hero Section -->
     <section id="home" class="relative h-screen overflow-hidden">
+      <div class="absolute inset-0 waves-bg"></div>
       <div id="particles-bg" class="absolute inset-0"></div>
-      <div class="absolute inset-0 waves-bg opacity-40"></div>
       <div
         class="container mx-auto px-4 h-full flex flex-col justify-center items-center relative z-10"
       >
         <div class="text-center">
           <h1
-            class="ascii-text text-4xl md:text-6xl font-bold mb-6 motion-text"
+            class="ascii-text motion-text text-4xl md:text-6xl font-bold mb-6"
           >
-            IBIRA RUNNERS MEMBER
+            IBIRA RUNNERS MEMBERS
           </h1>
           <p class="text-xl md:text-2xl mb-10 metallic-text parallax-text">
             MADE IN SÃO PAULO-BRAZIL
@@ -364,9 +355,6 @@
             <div class="event-details">
               <h3 class="text-xl font-semibold">Athenas</h3>
               <p>21KM, 15KM, 10KM e 5KM</p>
-              <p class="text-gray-400 text-sm mt-1 location-text">
-                <i class="fas fa-map-marker-alt mr-1"></i> São Paulo - SP
-              </p>
             </div>
             <a
               href="https://www.ativo.com/atletismo/corrida-athenas-21k"
@@ -381,9 +369,6 @@
             <div class="event-details">
               <h3 class="text-xl font-semibold">Seven Run</h3>
               <p>28KM, 21KM, 14KM e 7KM</p>
-              <p class="text-gray-400 text-sm mt-1 location-text">
-                <i class="fas fa-map-marker-alt mr-1"></i> Campinas - SP
-              </p>
             </div>
             <a
               href="https://www.ticketsports.com.br/seven-run"
@@ -398,9 +383,6 @@
             <div class="event-details">
               <h3 class="text-xl font-semibold">Athenas</h3>
               <p>25KM, 18KM, 12KM e 6KM</p>
-              <p class="text-gray-400 text-sm mt-1 location-text">
-                <i class="fas fa-map-marker-alt mr-1"></i> São Paulo - SP
-              </p>
             </div>
             <a
               href="https://www.ativo.com/atletismo/corrida-athenas-25k"
@@ -415,9 +397,6 @@
             <div class="event-details">
               <h3 class="text-xl font-semibold">SP City</h3>
               <p>42KM e 21KM</p>
-              <p class="text-gray-400 text-sm mt-1 location-text">
-                <i class="fas fa-map-marker-alt mr-1"></i> São Paulo - SP
-              </p>
             </div>
             <a
               href="https://maratonadesaopaulo.com.br"
@@ -432,9 +411,6 @@
             <div class="event-details">
               <h3 class="text-xl font-semibold">The Bridge</h3>
               <p>30KM, 15KM, 10KM e 5KM</p>
-              <p class="text-gray-400 text-sm mt-1 location-text">
-                <i class="fas fa-map-marker-alt mr-1"></i> Rio de Janeiro - RJ
-              </p>
             </div>
             <a
               href="https://www.inscricaothebridge.com.br"
@@ -449,9 +425,6 @@
             <div class="event-details">
               <h3 class="text-xl font-semibold">Athenas</h3>
               <p>28KM, 21KM, 14KM e 7KM</p>
-              <p class="text-gray-400 text-sm mt-1 location-text">
-                <i class="fas fa-map-marker-alt mr-1"></i> São Paulo - SP
-              </p>
             </div>
             <a
               href="https://www.ativo.com/atletismo/corrida-athenas-28k"
@@ -466,9 +439,6 @@
             <div class="event-details">
               <h3 class="text-xl font-semibold">Venus</h3>
               <p>21KM, 15KM, 10KM e 5KM</p>
-              <p class="text-gray-400 text-sm mt-1 location-text">
-                <i class="fas fa-map-marker-alt mr-1"></i> Belo Horizonte - MG
-              </p>
             </div>
             <a
               href="https://venus21k.com.br"
@@ -850,22 +820,30 @@
           </div>
         </div>
         <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-          <p>
+          <p class="mb-4">
             &copy; 2025 IBIRA RUNNERS MEMBERS. Todos os direitos reservados.
           </p>
+          <div class="py-4">
+            <a
+              href="https://leapfrogtech.netlify.app/"
+              target="_blank"
+              class="leapfrog-credit"
+            >
+              <i class="fas fa-rocket mr-2"></i> Desenvolvido por LeapFrogTech
+              <i class="fas fa-bolt mx-2"></i> Saltos Tecnológicos em Tempo
+              Recorde
+            </a>
+          </div>
         </div>
       </div>
     </footer>
 
     <!-- Scripts -->
     <script src="./js/script.js"></script>
-    <!-- THREE.js for 3D effects -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-    <!-- Botão Flutuante "Ser Membro" -->
+    <!-- Botão Flutuante Seja Membro -->
     <a href="#membros" class="botao-flutuante-membro">
-      <span class="pulso-neon"></span>
-      <i class="fas fa-running mr-1"></i> SER MEMBRO
+      <i class="fas fa-running mr-2"></i> Seja Membro
     </a>
   </body>
 </html>
