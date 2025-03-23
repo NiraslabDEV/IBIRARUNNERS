@@ -3501,3 +3501,303 @@ section#fundador .max-w-lg h3.metallic-text:hover::after {
 #particles-bg {
   z-index: 2;
 }
+
+/* Estilos especiais para o Corujão Dia das Mulheres */
+.text-pink-400 {
+  color: #f472b6;
+}
+
+.text-pink-500 {
+  color: #ec4899;
+}
+
+.bg-pink-600 {
+  background-color: #db2777;
+}
+
+.bg-pink-700 {
+  background-color: #be185d;
+}
+
+.hover\:bg-pink-700:hover {
+  background-color: #be185d;
+}
+
+/* Container da imagem do Corujão Dia das Mulheres */
+.relative.overflow-hidden.rounded-lg {
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+  transition: all 0.5s ease;
+}
+
+.relative.overflow-hidden.rounded-lg:hover {
+  box-shadow: 0 0 30px rgba(236, 72, 153, 0.5);
+}
+
+/* Edição Especial Badge */
+.text-pink-500.text-sm.font-bold {
+  position: relative;
+  display: inline-block;
+  padding: 2px 15px;
+  background: linear-gradient(45deg, #3f3f46, #18181b);
+  border-radius: 20px;
+  border: 1px solid #ec4899;
+  box-shadow: 0 0 10px rgba(236, 72, 153, 0.3);
+  animation: pulsarEdition 2s infinite alternate;
+}
+
+@keyframes pulsarEdition {
+  0% {
+    box-shadow: 0 0 10px rgba(236, 72, 153, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.6),
+      0 0 30px rgba(236, 72, 153, 0.3);
+  }
+}
+
+/* Estilo para o título do Corujão Dia das Mulheres */
+.flex.flex-col.items-center.mb-4 .metallic-text {
+  background: linear-gradient(to right, #f9a8d4, #f472b6, #ec4899, #db2777);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmerPink 3s infinite;
+  text-shadow: 0 0 5px rgba(236, 72, 153, 0.5);
+}
+
+@keyframes shimmerPink {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Animação para a borda embaixo da seção */
+.mb-8.pb-8.border-b.border-gray-700 {
+  position: relative;
+}
+
+.mb-8.pb-8.border-b.border-gray-700::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #ec4899, transparent);
+  animation: expandWidth 3s infinite alternate;
+}
+
+@keyframes expandWidth {
+  0% {
+    width: 30%;
+    opacity: 0.5;
+  }
+  100% {
+    width: 80%;
+    opacity: 1;
+  }
+}
+
+/* Estilos para o destaque do Corujão Dia das Mulheres */
+.text-pink-400 {
+  color: #f472b6;
+}
+
+.text-pink-500 {
+  color: #ec4899;
+}
+
+.max-w-4xl {
+  max-width: 56rem;
+}
+
+.max-w-5xl {
+  max-width: 64rem;
+}
+
+/* Animação de pulsação para o destaque */
+@keyframes pulse-pink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.text-pink-500 {
+  animation: pulse-pink 2s infinite;
+}
+
+/* Melhorias no carrossel */
+.carousel-slide {
+  transition: transform 0.3s ease;
+}
+
+.carousel-slide img {
+  max-height: 380px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.carousel-slide:hover img {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Botões do carrossel */
+.carousel-btn {
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-btn:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Indicadores do carrossel */
+.carousel-indicators button {
+  transition: all 0.3s ease;
+}
+
+.carousel-indicators button:hover {
+  transform: scale(1.2);
+}
+
+/* Estilo para o destaque principal */
+.max-w-4xl.bg-gray-900 {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.max-w-4xl.bg-gray-900:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Título para edições anteriores */
+.text-xl.font-bold.mb-6.text-center {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.text-xl.font-bold.mb-6.text-center::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* Estilos especiais para o Corujão Dia das Mulheres */
+.corujao-women-day {
+  background: linear-gradient(
+    135deg,
+    rgba(213, 51, 105, 0.1),
+    rgba(32, 41, 86, 0.2)
+  );
+  border: 1px solid rgba(213, 51, 105, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.corujao-women-day:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Container da imagem do Corujão Dia das Mulheres */
+.corujao-image-container {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.corujao-women-image {
+  transition: transform 0.5s ease;
+  display: block;
+  width: 100%;
+  filter: brightness(1.1) contrast(1.05);
+}
+
+.corujao-image-container:hover .corujao-women-image {
+  transform: scale(1.03);
+}
+
+.corujao-women-day .badge {
+  background-color: rgba(213, 51, 105, 0.85);
+  color: white;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 5px rgba(213, 51, 105, 0.3);
+  animation: pulse 2s infinite;
+}
+
+/* Estilo para o título do Corujão Dia das Mulheres */
+.corujao-women-title h3 {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+}
+
+.corujao-women-title h3::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(213, 51, 105, 0) 0%,
+    rgba(213, 51, 105, 0.8) 50%,
+    rgba(213, 51, 105, 0) 100%
+  );
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.text-pink-300 {
+  color: #f9a8d4;
+}
