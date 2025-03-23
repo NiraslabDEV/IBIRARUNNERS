@@ -111,15 +111,18 @@
 
     <!-- Hero Section -->
     <section id="home" class="relative h-screen overflow-hidden">
-      <div class="absolute inset-0 waves-bg"></div>
+      <div id="particles-bg" class="absolute inset-0"></div>
+      <div class="absolute inset-0 waves-bg opacity-40"></div>
       <div
         class="container mx-auto px-4 h-full flex flex-col justify-center items-center relative z-10"
       >
         <div class="text-center">
-          <h1 class="ascii-text text-4xl md:text-6xl font-bold mb-6">
+          <h1
+            class="ascii-text text-4xl md:text-6xl font-bold mb-6 motion-text"
+          >
             IBIRA RUNNERS MEMBER
           </h1>
-          <p class="text-xl md:text-2xl mb-10 metallic-text">
+          <p class="text-xl md:text-2xl mb-10 metallic-text parallax-text">
             MADE IN SÃO PAULO-BRAZIL
           </p>
           <div class="flex flex-wrap justify-center gap-4">
@@ -856,6 +859,8 @@
 
     <!-- Scripts -->
     <script src="./js/script.js"></script>
+    <!-- THREE.js for 3D effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <!-- Botão Flutuante "Ser Membro" -->
     <a href="#membros" class="botao-flutuante-membro">

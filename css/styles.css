@@ -2434,3 +2434,155 @@ section#eventos h2.glitch-text span {
     }
   }
 }
+
+/* Efeito neon para o item "Seja Membro" na navbar desktop */
+nav.md\:block a[href="#membros"] {
+  position: relative;
+  color: rgba(153, 0, 255, 0.9) !important;
+  text-shadow: 0 0 5px rgba(153, 0, 255, 0.5), 0 0 10px rgba(153, 0, 255, 0.3);
+  transition: all 0.3s ease;
+  padding: 5px 15px 5px 25px; /* Adicionado espaço à esquerda para o ícone */
+  border-radius: 20px;
+  background: rgba(153, 0, 255, 0.05);
+  overflow: hidden;
+  font-weight: 700;
+  animation: pulseMembroDesktop 2s infinite alternate;
+  border: 1px solid rgba(153, 0, 255, 0.2);
+}
+
+/* Animação de pulsação para o item "Seja Membro" no desktop */
+@keyframes pulseMembroDesktop {
+  0% {
+    box-shadow: 0 0 5px rgba(153, 0, 255, 0.3);
+    text-shadow: 0 0 5px rgba(153, 0, 255, 0.5), 0 0 10px rgba(153, 0, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(153, 0, 255, 0.5), 0 0 20px rgba(153, 0, 255, 0.3);
+    text-shadow: 0 0 8px rgba(153, 0, 255, 0.7), 0 0 15px rgba(153, 0, 255, 0.5);
+  }
+}
+
+/* Linha sublinhada que aparece ao passar o mouse - desktop */
+nav.md\:block a[href="#membros"] .underline {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(153, 0, 255, 0.8),
+    transparent
+  );
+  transition: width 0.3s ease;
+}
+
+/* Adiciona efeito de brilho que percorre o item - desktop */
+nav.md\:block a[href="#membros"] .shine {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 80%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(153, 0, 255, 0.2),
+    transparent
+  );
+  transform: rotate(25deg);
+  animation: shineEffect 3s infinite;
+}
+
+nav.md\:block a[href="#membros"]:hover {
+  color: rgba(153, 0, 255, 1) !important;
+  text-shadow: 0 0 8px rgba(153, 0, 255, 0.7), 0 0 15px rgba(153, 0, 255, 0.5);
+  transform: scale(1.05);
+  background: rgba(153, 0, 255, 0.1);
+  box-shadow: 0 0 10px rgba(153, 0, 255, 0.3);
+}
+
+nav.md\:block a[href="#membros"]:hover .underline {
+  width: 80%;
+}
+
+/* Adiciona um icone especial para o menu item - desktop */
+nav.md\:block a[href="#membros"] .star-icon {
+  content: "✶";
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  opacity: 0.8;
+  color: rgba(153, 0, 255, 1);
+  text-shadow: 0 0 5px rgba(153, 0, 255, 0.7);
+  animation: rotateStar 3s linear infinite;
+}
+
+/* Novos estilos para os efeitos na HOME */
+#particles-bg {
+  background-color: #000;
+  z-index: 1;
+}
+
+.motion-text {
+  position: relative;
+  z-index: 2;
+  animation: glowPulse 2s ease-in-out infinite alternate,
+    floatAnimation 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.parallax-text {
+  position: relative;
+  z-index: 2;
+  animation: floatSmallAnimation 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--secondary-color),
+      0 0 40px var(--secondary-color), 0 0 50px var(--secondary-color);
+  }
+  100% {
+    text-shadow: 0 0 15px #fff, 0 0 25px var(--secondary-color),
+      0 0 35px var(--secondary-color), 0 0 45px var(--secondary-color),
+      0 0 65px var(--secondary-color);
+  }
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: translate3d(5px, -10px, 20px) rotateX(2deg) rotateY(1deg);
+  }
+  50% {
+    transform: translate3d(0, 0, 40px) rotateX(0deg) rotateY(0deg);
+  }
+  75% {
+    transform: translate3d(-5px, 10px, 20px) rotateX(-2deg) rotateY(-1deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+  }
+}
+
+@keyframes floatSmallAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

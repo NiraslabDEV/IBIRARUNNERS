@@ -37,12 +37,188 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Inicializar o efeito de partículas 3D
+  initParticlesEffect();
+
+  // Inicializar efeito de movimento paralaxe na HOME
+  initParallaxEffect();
+
   // Inicializar o carrossel simples
   initSimpleCarousel();
 
   // Inicializar o formulário stepper
   initStepperForm();
 });
+
+// Efeito de partículas 3D para a HOME
+function initParticlesEffect() {
+  const particlesContainer = document.getElementById("particles-bg");
+  if (!particlesContainer || !window.THREE) return;
+
+  let scene, camera, renderer;
+  let particles, particleSystem;
+  let mouseX = 0,
+    mouseY = 0;
+  const windowHalfX = window.innerWidth / 2;
+  const windowHalfY = window.innerHeight / 2;
+
+  // Inicializar cena 3D
+  function init() {
+    // Criar cena
+    scene = new THREE.Scene();
+
+    // Configurar câmera
+    camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      1,
+      10000
+    );
+    camera.position.z = 1000;
+
+    // Criar partículas
+    const geometry = new THREE.BufferGeometry();
+    const verticesArray = [];
+    const colorsArray = [];
+
+    // Definir cores para as partículas (tons neon roxo e azul)
+    const colorPalette = [
+      new THREE.Color(0x9900ff), // Roxo neon
+      new THREE.Color(0x7928ca), // Roxo escuro
+      new THREE.Color(0xb347ff), // Roxo claro
+      new THREE.Color(0x330066), // Roxo muito escuro
+      new THREE.Color(0x00b4d8), // Azul ciano
+      new THREE.Color(0xffffff), // Branco (para alguns destaques)
+    ];
+
+    // Criar 2000 partículas aleatórias
+    for (let i = 0; i < 2000; i++) {
+      // Posição aleatória em formato de esfera
+      const radius = Math.random() * 1000 + 200;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.random() * Math.PI;
+
+      const x = radius * Math.sin(phi) * Math.cos(theta);
+      const y = radius * Math.sin(phi) * Math.sin(theta);
+      const z = radius * Math.cos(phi) - 500; // Afastar levemente da câmera
+
+      verticesArray.push(x, y, z);
+
+      // Cor aleatória da paleta
+      const color =
+        colorPalette[Math.floor(Math.random() * colorPalette.length)];
+      colorsArray.push(color.r, color.g, color.b);
+    }
+
+    // Adicionar os vértices à geometria
+    geometry.setAttribute(
+      "position",
+      new THREE.Float32BufferAttribute(verticesArray, 3)
+    );
+    geometry.setAttribute(
+      "color",
+      new THREE.Float32BufferAttribute(colorsArray, 3)
+    );
+
+    // Material para as partículas
+    const material = new THREE.PointsMaterial({
+      size: 3,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.7,
+      blending: THREE.AdditiveBlending,
+    });
+
+    // Criar o sistema de partículas
+    particleSystem = new THREE.Points(geometry, material);
+    scene.add(particleSystem);
+
+    // Configurar o renderer
+    renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x000000, 0);
+
+    // Adicionar o canvas ao container
+    particlesContainer.appendChild(renderer.domElement);
+
+    // Adicionar eventos para movimento do mouse
+    document.addEventListener("mousemove", onDocumentMouseMove, false);
+    window.addEventListener("resize", onWindowResize, false);
+  }
+
+  // Ajustar quando a janela for redimensionada
+  function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+
+  // Capturar movimento do mouse
+  function onDocumentMouseMove(event) {
+    mouseX = (event.clientX - windowHalfX) * 0.05;
+    mouseY = (event.clientY - windowHalfY) * 0.05;
+  }
+
+  // Função de animação
+  function animate() {
+    requestAnimationFrame(animate);
+
+    // Rotacionar o sistema de partículas suavemente
+    particleSystem.rotation.x += 0.0005;
+    particleSystem.rotation.y += 0.0005;
+
+    // Movimento baseado no mouse
+    camera.position.x += (mouseX - camera.position.x) * 0.05;
+    camera.position.y += (-mouseY - camera.position.y) * 0.05;
+    camera.lookAt(scene.position);
+
+    // Renderizar a cena
+    renderer.render(scene, camera);
+  }
+
+  // Iniciar o efeito
+  init();
+  animate();
+}
+
+// Efeito de paralaxe para elementos na HOME
+function initParallaxEffect() {
+  const homeSection = document.getElementById("home");
+  if (!homeSection) return;
+
+  const title = homeSection.querySelector(".motion-text");
+  const subtitle = homeSection.querySelector(".parallax-text");
+
+  // Adicionar evento de movimento do mouse para o efeito de paralaxe
+  homeSection.addEventListener("mousemove", (e) => {
+    const x = (window.innerWidth / 2 - e.clientX) / 25;
+    const y = (window.innerHeight / 2 - e.clientY) / 25;
+
+    // Aplicar transformação 3D conforme o movimento do mouse
+    if (title) {
+      title.style.transform = `translate3d(${x}px, ${y}px, 20px) rotateX(${
+        y / 10
+      }deg) rotateY(${-x / 10}deg)`;
+    }
+
+    if (subtitle) {
+      subtitle.style.transform = `translate3d(${x * 0.5}px, ${
+        y * 0.5
+      }px, 10px)`;
+    }
+  });
+
+  // Resetar transformações quando o mouse sair da área
+  homeSection.addEventListener("mouseleave", () => {
+    if (title) {
+      title.style.transform = "";
+    }
+
+    if (subtitle) {
+      subtitle.style.transform = "";
+    }
+  });
+}
 
 // Carrossel Simples
 function initSimpleCarousel() {
