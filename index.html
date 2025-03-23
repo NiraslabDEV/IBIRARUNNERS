@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IBIRA RUNNERS MEMBERS | São Paulo - Brasil</title>
+    <meta
+      name="description"
+      content="Comunidade de corredores do Parque do Ibirapuera em São Paulo"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-black text-gray-200 font-sans">
+    <!-- Overlay para fechar o menu -->
+    <div
+      id="menu-overlay"
+      class="fixed inset-0 bg-transparent z-40 hidden"
+    ></div>
+
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-50 backdrop-blur-md bg-black/80 border-b border-gray-800"
+    >
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="logo-container w-40">
+          <img
+            src="./assets/LOGO-IBIRA.png"
+            alt="IBIRA RUNNERS LOGO"
+            class="w-full h-auto"
+          />
+        </div>
+        <nav class="hidden md:block">
+          <ul class="flex space-x-6">
+            <li>
+              <a href="#home" class="hover:text-silver transition-colors"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a href="#membros" class="text-xl relative">
+                <span class="star-icon">✶</span>
+                Seja Membro
+                <span class="underline"></span>
+                <span class="shine"></span>
+              </a>
+            </li>
+            <li>
+              <a href="#eventos" class="hover:text-silver transition-colors"
+                >Eventos</a
+              >
+            </li>
+            <li>
+              <a href="#patrocinios" class="hover:text-silver transition-colors"
+                >Patrocínios</a
+              >
+            </li>
+            <li>
+              <a href="#strava" class="hover:text-orange-500 transition-colors"
+                >Strava</a
+              >
+            </li>
+            <li>
+              <a href="#corujao" class="hover:text-silver transition-colors"
+                >Corujão Ibira</a
+              >
+            </li>
+            <li>
+              <a href="#marketplace" class="hover:text-silver transition-colors"
+                >Drops</a
+              >
+            </li>
+            <li>
+              <a href="#contato" class="hover:text-silver transition-colors"
+                >Contato</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <button class="md:hidden text-2xl z-50" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden bg-black/95 w-full absolute z-50">
+        <ul class="flex flex-col items-center py-6 space-y-4">
+          <li><a href="#home" class="text-xl">Home</a></li>
+          <li>
+            <a href="#membros" class="text-xl relative">
+              <span class="star-icon">✶</span>
+              Seja Membro
+              <span class="underline"></span>
+              <span class="shine"></span>
+            </a>
+          </li>
+          <li><a href="#eventos" class="text-xl">Eventos</a></li>
+          <li><a href="#patrocinios" class="text-xl">Patrocínios</a></li>
+          <li><a href="#strava" class="text-xl text-orange-500">Strava</a></li>
+          <li><a href="#corujao" class="text-xl">Corujão Ibira</a></li>
+          <li><a href="#marketplace" class="text-xl">Drops</a></li>
+          <li><a href="#contato" class="text-xl">Contato</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen overflow-hidden">
+      <div class="absolute inset-0 waves-bg"></div>
+      <div
+        class="container mx-auto px-4 h-full flex flex-col justify-center items-center relative z-10"
+      >
+        <div class="text-center">
+          <h1 class="ascii-text text-4xl md:text-6xl font-bold mb-6">
+            IBIRA RUNNERS MEMBER
+          </h1>
+          <p class="text-xl md:text-2xl mb-10 metallic-text">
+            MADE IN SÃO PAULO-BRAZIL
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="https://chat.whatsapp.com/KTz4t4K77JH56PPdIPlZgL"
+              class="gooey-btn btn-whatsapp"
+              target="_blank"
+            >
+              <i class="fab fa-whatsapp mr-2"></i> Grupo WhatsApp
+            </a>
+            <a href="#membros" class="gooey-btn btn-membro">
+              <i class="fas fa-running mr-2"></i> Quero ser membro
+            </a>
+            <a
+              href="https://t.me/ibirarunners"
+              class="gooey-btn btn-telegram"
+              target="_blank"
+            >
+              <i class="fab fa-telegram mr-2"></i> Grupo Telegram
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marketplace Section (Moved up) -->
+    <section id="marketplace" class="py-20 bg-black">
+      <div class="container mx-auto px-4">
+        <h2
+          class="glitch-text glitch-teal text-3xl md:text-4xl font-bold"
+          data-text="DROPS EXCLUSIVOS"
+        >
+          <span data-text="DROPS EXCLUSIVOS">DROPS EXCLUSIVOS</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="product-card bg-opacity-70">
+            <div class="product-image">
+              <img
+                src="https://placehold.co/600x800/111111/CCCCCC?text=Camiseta+Ibira+Runners"
+                alt="Camiseta Ibira Runners"
+              />
+            </div>
+            <h3 class="text-xl font-semibold mt-4">Camiseta Running</h3>
+            <p class="text-gray-400">DROP #1 - Edição Limitada</p>
+            <p class="text-2xl font-bold metallic-text my-2">R$ 150,00</p>
+            <a
+              href="https://wa.me/11963673333?text=Tenho interesse na Camiseta Running"
+              class="gooey-btn w-full"
+              target="_blank"
+            >
+              <i class="fab fa-whatsapp mr-2"></i> Comprar
+            </a>
+          </div>
+          <div class="product-card bg-opacity-70">
+            <div class="product-image">
+              <img
+                src="https://placehold.co/600x800/111111/CCCCCC?text=Bermuda+Ibira+Runners"
+                alt="Bermuda Ibira Runners"
+              />
+            </div>
+            <h3 class="text-xl font-semibold mt-4">Bermuda Runner</h3>
+            <p class="text-gray-400">DROP #1 - Edição Limitada</p>
+            <p class="text-2xl font-bold metallic-text my-2">R$ 180,00</p>
+            <a
+              href="https://wa.me/11963673333?text=Tenho interesse na Bermuda Runner"
+              class="gooey-btn w-full"
+              target="_blank"
+            >
+              <i class="fab fa-whatsapp mr-2"></i> Comprar
+            </a>
+          </div>
+          <div class="product-card bg-opacity-70">
+            <div class="product-image">
+              <img
+                src="https://placehold.co/600x800/111111/CCCCCC?text=Boné+Ibira+Runners"
+                alt="Boné Ibira Runners"
+              />
+            </div>
+            <h3 class="text-xl font-semibold mt-4">Boné Running</h3>
+            <p class="text-gray-400">DROP #1 - Edição Limitada</p>
+            <p class="text-2xl font-bold metallic-text my-2">R$ 120,00</p>
+            <a
+              href="https://wa.me/11963673333?text=Tenho interesse no Boné Running"
+              class="gooey-btn w-full"
+              target="_blank"
+            >
+              <i class="fab fa-whatsapp mr-2"></i> Comprar
+            </a>
+          </div>
+          <div class="product-card bg-opacity-70">
+            <div class="product-image">
+              <img
+                src="https://placehold.co/600x800/111111/CCCCCC?text=Protetor+de+Banco"
+                alt="Protetor de Banco Ibira Runners"
+              />
+            </div>
+            <h3 class="text-xl font-semibold mt-4">Protetor de Banco</h3>
+            <p class="text-gray-400">Neoprene - Para Carro</p>
+            <p class="text-2xl font-bold metallic-text my-2">R$ 250,00</p>
+            <a
+              href="https://wa.me/11963673333?text=Tenho interesse no Protetor de Banco"
+              class="gooey-btn w-full"
+              target="_blank"
+            >
+              <i class="fab fa-whatsapp mr-2"></i> Comprar
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seja Membro Section -->
+    <section id="membros" class="py-20 membro-section">
+      <div class="container mx-auto px-4">
+        <h2
+          class="glitch-text glitch-purple text-3xl md:text-4xl font-bold"
+          data-text="SEJA UM MEMBRO"
+        >
+          <span data-text="SEJA UM MEMBRO">SEJA UM MEMBRO</span>
+        </h2>
+
+        <div class="max-w-4xl mx-auto membro-container">
+          <!-- Benefícios -->
+          <div class="beneficios-container">
+            <h3 class="text-2xl font-bold mb-4 beneficios-titulo">
+              Benefícios Exclusivos
+            </h3>
+            <p class="mb-4">
+              Faça parte da comunidade de corredores mais vibrante do Parque
+              Ibirapuera e desfrute de vantagens exclusivas.
+            </p>
+            <ul class="beneficios-lista">
+              <li class="beneficio-item">
+                Descontos exclusivos em todas as marcas parceiras
+                <span class="destaque-badge">10% a 20% OFF</span>
+              </li>
+              <li class="beneficio-item">
+                Kit de boas-vindas com camiseta técnica exclusiva
+              </li>
+              <li class="beneficio-item">
+                Prioridade nas inscrições dos eventos IBIRA RUNNERS
+              </li>
+              <li class="beneficio-item">
+                Participação gratuita nos treinos semanais com coach
+                especializado
+              </li>
+              <li class="beneficio-item">
+                Acesso ao grupo fechado no WhatsApp para comunicados e dicas
+              </li>
+              <li class="beneficio-item">
+                Participação nas corridas noturnas "Corujão" com segurança e
+                suporte
+              </li>
+              <li class="beneficio-item">
+                Hidratação e nutrição nos pontos de encontro durante os treinos
+              </li>
+              <li class="beneficio-item">
+                Assessoria de corrida online
+                <span class="destaque-badge">NOVO</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Formulário de inscrição -->
+          <div
+            id="cadastro"
+            class="bg-gray-900 bg-opacity-70 rounded-lg p-8 border border-gray-700"
+          >
+            <div id="stepper-form" class="stepper-container">
+              <!-- Etapas do formulário serão geradas via JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strava Group Section -->
+    <section id="strava" class="py-20 strava-section">
+      <div class="container mx-auto px-4">
+        <h2
+          class="glitch-text glitch-orange text-3xl md:text-4xl font-bold"
+          data-text="GRUPO STRAVA"
+        >
+          <span data-text="GRUPO STRAVA">GRUPO STRAVA</span>
+        </h2>
+        <div class="max-w-4xl mx-auto strava-container">
+          <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="w-full md:w-1/3 flex justify-center">
+              <div class="strava-logo-wrapper">
+                <div class="strava-logo-container">
+                  <img
+                    src="./assets/LOGO-IBIRA.png"
+                    alt="Strava Logo"
+                    class="rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-2/3 text-center md:text-left">
+              <div class="strava-content">
+                <h3
+                  class="text-2xl font-bold mb-4 text-orange-500 strava-title"
+                >
+                  Conecte-se ao Nosso Grupo
+                </h3>
+                <p class="mb-6">
+                  Compartilhe suas corridas, acompanhe o progresso de outros
+                  membros e participe de desafios exclusivos no nosso grupo do
+                  Strava.
+                </p>
+                <div class="flex justify-center md:justify-start">
+                  <a
+                    href="https://www.strava.com/clubs/ibirarunners"
+                    class="strava-btn"
+                    target="_blank"
+                  >
+                    <i class="fab fa-strava mr-2"></i> Junte-se ao Clube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Eventos Section -->
+    <section id="eventos" class="py-20 bg-gradient-to-b from-gray-900 to-black">
+      <div class="container mx-auto px-4">
+        <h2
+          class="glitch-text glitch-blue text-3xl md:text-4xl font-bold"
+          data-text="EVENTOS 2025"
+        >
+          <span data-text="EVENTOS 2025">EVENTOS 2025</span>
+        </h2>
+        <div class="max-w-4xl mx-auto space-y-8">
+          <div class="event-card bg-opacity-70">
+            <div class="event-date">16 MAR</div>
+            <div class="event-details">
+              <h3 class="text-xl font-semibold">Athenas</h3>
+              <p>21KM, 15KM, 10KM e 5KM</p>
+              <p class="text-gray-400 text-sm mt-1 location-text">
+                <i class="fas fa-map-marker-alt mr-1"></i> São Paulo - SP
+              </p>
+            </div>
+            <a
+              href="https://www.ativo.com/atletismo/corrida-athenas-21k"
+              class="event-button"
+              target="_blank"
+            >
+              <i class="fas fa-ticket-alt mr-2"></i> Inscreva-se
+            </a>
+          </div>
+          <div class="event-card bg-opacity-70">
+            <div class="event-date">27 ABR</div>
+            <div class="event-details">
+              <h3 class="text-xl font-semibold">Seven Run</h3>
+              <p>28KM, 21KM, 14KM e 7KM</p>
+              <p class="text-gray-400 text-sm mt-1 location-text">
+                <i class="fas fa-map-marker-alt mr-1"></i> Campinas - SP
+              </p>
+            </div>
+            <a
+              href="https://www.ticketsports.com.br/seven-run"
+              class="event-button"
+              target="_blank"
+            >
+              <i class="fas fa-ticket-alt mr-2"></i> Inscreva-se
+            </a>
+          </div>
+          <div class="event-card bg-opacity-70">
+            <div class="event-date">15 JUN</div>
+            <div class="event-details">
+              <h3 class="text-xl font-semibold">Athenas</h3>
+              <p>25KM, 18KM, 12KM e 6KM</p>
+              <p class="text-gray-400 text-sm mt-1 location-text">
+                <i class="fas fa-map-marker-alt mr-1"></i> São Paulo - SP
+              </p>
+            </div>
+            <a
+              href="https://www.ativo.com/atletismo/corrida-athenas-25k"
+              class="event-button"
+              target="_blank"
+            >
+              <i class="fas fa-ticket-alt mr-2"></i> Inscreva-se
+            </a>
+          </div>
+          <div class="event-card bg-opacity-70">
+            <div class="event-date">27 JUL</div>
+            <div class="event-details">
+              <h3 class="text-xl font-semibold">SP City</h3>
+              <p>42KM e 21KM</p>
+              <p class="text-gray-400 text-sm mt-1 location-text">
+                <i class="fas fa-map-marker-alt mr-1"></i> São Paulo - SP
+              </p>
+            </div>
+            <a
+              href="https://maratonadesaopaulo.com.br"
+              class="event-button"
+              target="_blank"
+            >
+              <i class="fas fa-ticket-alt mr-2"></i> Inscreva-se
+            </a>
+          </div>
+          <div class="event-card bg-opacity-70">
+            <div class="event-date">31 AGO</div>
+            <div class="event-details">
+              <h3 class="text-xl font-semibold">The Bridge</h3>
+              <p>30KM, 15KM, 10KM e 5KM</p>
+              <p class="text-gray-400 text-sm mt-1 location-text">
+                <i class="fas fa-map-marker-alt mr-1"></i> Rio de Janeiro - RJ
+              </p>
+            </div>
+            <a
+              href="https://www.inscricaothebridge.com.br"
+              class="event-button"
+              target="_blank"
+            >
+              <i class="fas fa-ticket-alt mr-2"></i> Inscreva-se
+            </a>
+          </div>
+          <div class="event-card bg-opacity-70">
+            <div class="event-date">19 OUT</div>
+            <div class="event-details">
+              <h3 class="text-xl font-semibold">Athenas</h3>
+              <p>28KM, 21KM, 14KM e 7KM</p>
+              <p class="text-gray-400 text-sm mt-1 location-text">
+                <i class="fas fa-map-marker-alt mr-1"></i> São Paulo - SP
+              </p>
+            </div>
+            <a
+              href="https://www.ativo.com/atletismo/corrida-athenas-28k"
+              class="event-button"
+              target="_blank"
+            >
+              <i class="fas fa-ticket-alt mr-2"></i> Inscreva-se
+            </a>
+          </div>
+          <div class="event-card bg-opacity-70">
+            <div class="event-date">30 NOV</div>
+            <div class="event-details">
+              <h3 class="text-xl font-semibold">Venus</h3>
+              <p>21KM, 15KM, 10KM e 5KM</p>
+              <p class="text-gray-400 text-sm mt-1 location-text">
+                <i class="fas fa-map-marker-alt mr-1"></i> Belo Horizonte - MG
+              </p>
+            </div>
+            <a
+              href="https://venus21k.com.br"
+              class="event-button"
+              target="_blank"
+            >
+              <i class="fas fa-ticket-alt mr-2"></i> Inscreva-se
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Patrocínios Section -->
+    <section id="patrocinios" class="py-20 sponsors-section">
+      <div class="container mx-auto px-4">
+        <h2
+          class="glitch-text glitch-cyan text-3xl md:text-4xl font-bold"
+          data-text="PATROCINADORES"
+        >
+          <span data-text="PATROCINADORES">PATROCINADORES</span>
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div class="sponsor-card bg-opacity-70">
+            <a href="https://www.polar.com/br-pt" target="_blank">
+              <div class="sponsor-logo-wrapper">
+                <img
+                  src="./assets/sponsors/logo-polar.jpg"
+                  alt="Polar Brasil"
+                  class="sponsor-logo"
+                />
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Polar Brasil</h3>
+              <p>Cupom: <span class="discount-code">IBIRA10</span></p>
+            </a>
+          </div>
+          <div class="sponsor-card bg-opacity-70">
+            <a href="https://www.iguanasports.com.br" target="_blank">
+              <div class="sponsor-logo-wrapper">
+                <img
+                  src="./assets/sponsors/iguana-sports.png"
+                  alt="Iguana Sports"
+                  class="sponsor-logo"
+                />
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Iguana Sports</h3>
+              <p>Cupom: <span class="discount-code">IBIRA10</span></p>
+            </a>
+          </div>
+          <div class="sponsor-card bg-opacity-70">
+            <a href="https://www.oakley.com.br" target="_blank">
+              <div class="sponsor-logo-wrapper">
+                <img
+                  src="./assets/sponsors/oakley-logo.png"
+                  alt="Oakley Brasil"
+                  class="sponsor-logo"
+                />
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Oakley Brasil</h3>
+              <p>Cupom: <span class="discount-code">IBIRA10</span></p>
+            </a>
+          </div>
+          <div class="sponsor-card bg-opacity-70">
+            <a href="https://www.mizuno.com.br" target="_blank">
+              <div class="sponsor-logo-wrapper">
+                <img
+                  src="./assets/sponsors/logo-mizuno.jpg"
+                  alt="Mizuno Brasil"
+                  class="sponsor-logo"
+                />
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Mizuno Brasil</h3>
+              <p>Cupom: <span class="discount-code">IBIRA10</span></p>
+            </a>
+          </div>
+          <div class="sponsor-card bg-opacity-70">
+            <a href="https://vita.org.br" target="_blank">
+              <div class="sponsor-logo-wrapper">
+                <img
+                  src="./assets/sponsors/vita-org-logo.png"
+                  alt="Vita"
+                  class="sponsor-logo"
+                />
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Vita.org.br</h3>
+              <p>Cupom: <span class="discount-code">IBIRA10</span></p>
+            </a>
+          </div>
+          <div class="sponsor-card bg-opacity-70">
+            <a href="https://z2performance.com.br" target="_blank">
+              <div class="sponsor-logo-wrapper">
+                <img
+                  src="./assets/sponsors/z2-logo.jpeg"
+                  alt="Z2 Performance"
+                  class="sponsor-logo"
+                />
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Z2 Performance</h3>
+              <p>Cupom: <span class="discount-code">IBIRA10</span></p>
+            </a>
+          </div>
+          <div class="sponsor-card bg-opacity-70">
+            <a href="https://runningland.com.br" target="_blank">
+              <div class="sponsor-logo-wrapper">
+                <img
+                  src="./assets/sponsors/RunningLand-logo.png"
+                  alt="Running Land"
+                  class="sponsor-logo"
+                />
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Running Land</h3>
+              <p>Cupom: <span class="discount-code">IBIRA10</span></p>
+            </a>
+          </div>
+          <div class="sponsor-card bg-opacity-70">
+            <a href="https://coretrainingzone.com.br" target="_blank">
+              <div class="sponsor-logo-wrapper">
+                <img
+                  src="./assets/sponsors/core-logo.jpg"
+                  alt="Core Training Zone"
+                  class="sponsor-logo"
+                />
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Core Training Zone</h3>
+              <p>Cupom: <span class="discount-code">IBIRARUNNERS</span></p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Corujão Section -->
+    <section id="corujao" class="py-20 bg-gradient-to-b from-gray-900 to-black">
+      <div class="container mx-auto px-4">
+        <h2
+          class="glitch-text glitch-pink text-3xl md:text-4xl font-bold"
+          data-text="CORUJÃO IBIRA"
+        >
+          <span data-text="CORUJÃO IBIRA">CORUJÃO IBIRA</span>
+        </h2>
+
+        <div
+          class="max-w-4xl mx-auto bg-gray-900 bg-opacity-70 rounded-lg p-8 border border-gray-700 mb-12"
+        >
+          <div class="flex flex-col md:flex-row items-center gap-6">
+            <div class="w-full md:w-1/3 flex justify-center">
+              <div
+                class="w-32 h-32 bg-black rounded-full flex items-center justify-center"
+              >
+                <i class="fas fa-clock text-5xl text-silver"></i>
+              </div>
+            </div>
+            <div class="w-full md:w-2/3 text-center md:text-left">
+              <h3 class="text-2xl font-bold mb-4 metallic-text">
+                Próximo Corujão: 23 de Março de 2025
+              </h3>
+              <p class="mb-2">
+                <i class="fas fa-calendar-day mr-2"></i> Acontece todos os
+                domingos
+              </p>
+              <p class="mb-2">
+                <i class="fas fa-hourglass-start mr-2"></i> Horário de chegada:
+                4:30am
+              </p>
+              <p class="mb-4">
+                <i class="fas fa-running mr-2"></i> Início da corrida: 5:00am
+              </p>
+              <a
+                href="https://wa.me/11963673333?text=Quero participar do próximo Corujão"
+                class="gooey-btn inline-flex"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp mr-2"></i> Participar
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carrossel Simples - Últimas Edições -->
+        <div class="mt-16">
+          <h3 class="text-2xl font-bold mb-8 text-center metallic-text">
+            ÚLTIMAS EDIÇÕES
+          </h3>
+
+          <div class="simple-carousel relative max-w-5xl mx-auto">
+            <div class="carousel-container overflow-hidden">
+              <div
+                class="carousel-track flex transition-transform duration-500"
+              >
+                <!-- Imagens do carrossel serão adicionadas via JavaScript -->
+              </div>
+            </div>
+
+            <button
+              class="carousel-btn prev absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/70 p-3 rounded-full text-white"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <button
+              class="carousel-btn next absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/70 p-3 rounded-full text-white"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <div class="carousel-indicators flex justify-center mt-4 gap-2">
+              <!-- Indicadores do carrossel serão adicionados via JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fundador Section (movido para antes do rodapé) -->
+    <section
+      id="fundador"
+      class="py-20 bg-gradient-to-b from-black to-gray-900"
+    >
+      <div class="container mx-auto px-4">
+        <h2
+          class="glitch-text glitch-purple text-3xl md:text-4xl font-bold"
+          data-text="FUNDADOR"
+        >
+          <span data-text="FUNDADOR">FUNDADOR</span>
+        </h2>
+        <div
+          class="flex flex-col md:flex-row items-center justify-center gap-10"
+        >
+          <a
+            href="https://www.instagram.com/stories/carloskoji/"
+            target="_blank"
+            class="w-64 h-64 rounded-full overflow-hidden border-4 border-silver hover:border-white transition-all duration-300"
+          >
+            <img
+              src="./assets/KOJI-FUNDADOR.png"
+              alt="Carlos Koji - Fundador"
+              class="w-full h-full object-cover"
+            />
+          </a>
+          <div class="max-w-lg text-center md:text-left">
+            <h3 class="text-2xl font-bold mb-4 metallic-text">
+              🇧🇷 Carlos Koji
+            </h3>
+            <p class="mb-6">
+              Fundador do Ibira Runners Members, comunidade de corredores do
+              @parquedoibira.
+            </p>
+            <p class="mb-6">Parcerias: carloskoji@live.com</p>
+            <div class="flex justify-center md:justify-start gap-4">
+              <a
+                href="https://www.instagram.com/ibira.runners/"
+                class="text-2xl hover:text-silver transition-colors"
+                target="_blank"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://www.youtube.com/watch?v=s0AtRZr0fxI"
+                class="text-2xl hover:text-silver transition-colors"
+                target="_blank"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-gradient-to-b from-gray-900 to-black threads-bg">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div>
+            <img
+              src="./assets/LOGO-IBIRA.png"
+              alt="IBIRA RUNNERS LOGO"
+              class="w-48 mb-6"
+            />
+            <p class="mb-4">Fam de corredores do @parquedoibira</p>
+            <p class="mb-4">Parcerias: carloskoji@live.com</p>
+            <div class="flex space-x-4 mt-6">
+              <a
+                href="https://www.instagram.com/ibira.runners/"
+                class="text-2xl hover:text-silver transition-colors"
+                target="_blank"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://t.me/ibirarunners"
+                class="text-2xl hover:text-silver transition-colors"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i>
+              </a>
+              <a
+                href="https://chat.whatsapp.com/KTz4t4K77JH56PPdIPlZgL"
+                class="text-2xl hover:text-silver transition-colors"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i>
+              </a>
+              <a
+                href="https://www.youtube.com/watch?v=s0AtRZr0fxI"
+                class="text-2xl hover:text-silver transition-colors"
+                target="_blank"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+              <a
+                href="https://www.strava.com/clubs/ibirarunners"
+                class="text-2xl hover:text-orange-500 transition-colors"
+                target="_blank"
+              >
+                <i class="fab fa-strava"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-6 metallic-text">Links Rápidos</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="#home" class="hover:text-silver transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="#membros" class="hover:text-silver transition-colors"
+                  >Seja Membro</a
+                >
+              </li>
+              <li>
+                <a href="#eventos" class="hover:text-silver transition-colors"
+                  >Eventos</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#patrocinios"
+                  class="hover:text-silver transition-colors"
+                  >Patrocínios</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#strava"
+                  class="hover:text-orange-500 transition-colors"
+                  >Strava</a
+                >
+              </li>
+              <li>
+                <a href="#corujao" class="hover:text-silver transition-colors"
+                  >Corujão Ibira</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#marketplace"
+                  class="hover:text-silver transition-colors"
+                  >Drops Exclusivos</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div id="contato">
+            <h3 class="text-xl font-bold mb-6 metallic-text">Contato</h3>
+            <p class="mb-4">
+              Ponto de hidratação: próximo ao Madureira | portão 8 (av Republica
+              do Líbano)
+            </p>
+            <a
+              href="https://wa.me/11963673333"
+              class="gooey-btn inline-flex mt-4"
+              target="_blank"
+            >
+              <i class="fab fa-whatsapp mr-2"></i> Fale Conosco
+            </a>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+          <p>
+            &copy; 2025 IBIRA RUNNERS MEMBERS. Todos os direitos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./js/script.js"></script>
+
+    <!-- Botão Flutuante "Ser Membro" -->
+    <a href="#membros" class="botao-flutuante-membro">
+      <span class="pulso-neon"></span>
+      <i class="fas fa-running mr-1"></i> SER MEMBRO
+    </a>
+  </body>
+</html>
