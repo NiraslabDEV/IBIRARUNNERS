@@ -3892,3 +3892,335 @@ section#fundador .max-w-lg h3.metallic-text:hover::after {
 .program-info p:has(.neon-value) strong {
   margin-right: 5px;
 }
+
+/* Estilos para a Seção de Parcerias */
+.parcerias-section {
+  position: relative;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.parcerias-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(153, 0, 255, 0.05) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  background-size: 100% 100%;
+  opacity: 0.7;
+  z-index: 0;
+  animation: pulsarParceriaBg 8s ease-in-out infinite;
+}
+
+.parcerias-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 215, 0, 0),
+    rgba(255, 215, 0, 0.5),
+    rgba(255, 215, 0, 0)
+  );
+  z-index: 1;
+  animation: slideBorderParcerias 5s ease-in-out infinite;
+}
+
+@keyframes pulsarParceriaBg {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes slideBorderParcerias {
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+}
+
+.parcerias-container {
+  position: relative;
+  background: rgba(16, 16, 20, 0.7);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 0 20px rgba(153, 0, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.parcerias-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(153, 0, 255, 0.3);
+}
+
+.parcerias-content {
+  position: relative;
+  z-index: 2;
+}
+
+.beneficios-parceiros ul li {
+  transition: all 0.3s ease;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.beneficios-parceiros ul li:hover {
+  background: rgba(153, 0, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.parceria-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(45deg, #7928ca, #9900ff);
+  border-radius: 50%;
+  color: white;
+  font-size: 14px;
+  box-shadow: 0 0 10px rgba(153, 0, 255, 0.5);
+}
+
+.contato-destaque {
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  position: relative;
+  display: inline-block;
+}
+
+.contato-destaque::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 215, 0, 0),
+    rgba(255, 215, 0, 0.8),
+    rgba(255, 215, 0, 0)
+  );
+  animation: slideBorderContato 3s ease-in-out infinite;
+}
+
+@keyframes slideBorderContato {
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+}
+
+.contato-parceria-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.contato-parceria-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: all 0.5s ease;
+  opacity: 0.9;
+}
+
+.contato-parceria-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.email-btn {
+  color: white;
+  background: linear-gradient(45deg, #ad5389, #3c1053);
+}
+
+.email-btn::before {
+  background: linear-gradient(45deg, #3c1053, #ad5389);
+  opacity: 0;
+}
+
+.email-btn:hover::before {
+  opacity: 1;
+}
+
+.whatsapp-btn {
+  color: white;
+  background: linear-gradient(45deg, #25d366, #128c7e);
+}
+
+.whatsapp-btn::before {
+  background: linear-gradient(45deg, #128c7e, #25d366);
+  opacity: 0;
+}
+
+.whatsapp-btn:hover::before {
+  opacity: 1;
+}
+
+.parcerias-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.parceria-logo-wrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.5),
+    transparent
+  );
+  box-shadow: 0 0 20px rgba(153, 0, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.parceria-logo-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: conic-gradient(
+    from 0deg,
+    #7928ca,
+    #9900ff,
+    #ff0080,
+    #ffb800,
+    #00dbde,
+    #7928ca
+  );
+  border-radius: 50%;
+  z-index: -1;
+  animation: rotateParceriaLogo 10s linear infinite;
+}
+
+@keyframes rotateParceriaLogo {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.parceria-logo-wrapper:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(153, 0, 255, 0.5);
+}
+
+.parceria-logo {
+  width: 85%;
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+.parceria-logo-wrapper:hover .parceria-logo {
+  transform: scale(1.1);
+}
+
+.parceria-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  width: 100%;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(20, 20, 25, 0.6);
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid rgba(120, 120, 150, 0.1);
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-3px);
+  background: rgba(30, 30, 40, 0.6);
+  border-color: rgba(153, 0, 255, 0.3);
+}
+
+.stat-number {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ffd700, #ffa500);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover .stat-number {
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #ccc;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .parcerias-container {
+    padding: 20px;
+  }
+
+  .parceria-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .parceria-logo-wrapper {
+    width: 150px;
+    height: 150px;
+  }
+}
