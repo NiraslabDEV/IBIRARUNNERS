@@ -3801,3 +3801,94 @@ section#fundador .max-w-lg h3.metallic-text:hover::after {
 .text-pink-300 {
   color: #f9a8d4;
 }
+
+/* Estilo para o valor da mensalidade com efeito neon */
+.neon-value {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 700;
+  font-size: 1.4em;
+  background: linear-gradient(45deg, #7928ca, #9900ff, #b347ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  padding: 2px 8px;
+  border-radius: 4px;
+  position: relative;
+  display: inline-block;
+  animation: pulsarValorNeon 2s infinite alternate;
+  letter-spacing: 1px;
+  margin: 0 4px;
+  text-shadow: 0 0 5px rgba(153, 0, 255, 0.7), 0 0 10px rgba(153, 0, 255, 0.5);
+  box-shadow: 0 0 10px rgba(153, 0, 255, 0.3);
+  border: 1px solid rgba(153, 0, 255, 0.3);
+}
+
+.neon-value::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    #7928ca,
+    #9900ff,
+    #b347ff,
+    #9900ff,
+    #7928ca
+  );
+  border-radius: 6px;
+  z-index: -1;
+  filter: blur(3px);
+  opacity: 0.7;
+  background-size: 200% 200%;
+  animation: moveBorderGradient 4s linear infinite;
+}
+
+.neon-value::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: transparent;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(153, 0, 255, 0.6), 0 0 30px rgba(153, 0, 255, 0.3);
+  z-index: -2;
+  animation: pulsarHaloValor 1.5s infinite alternate;
+  opacity: 0.7;
+}
+
+@keyframes pulsarValorNeon {
+  0% {
+    text-shadow: 0 0 5px rgba(153, 0, 255, 0.7), 0 0 10px rgba(153, 0, 255, 0.5);
+    box-shadow: 0 0 5px rgba(153, 0, 255, 0.4);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(153, 0, 255, 0.9),
+      0 0 20px rgba(153, 0, 255, 0.7), 0 0 30px rgba(153, 0, 255, 0.5);
+    box-shadow: 0 0 15px rgba(153, 0, 255, 0.6);
+  }
+}
+
+@keyframes pulsarHaloValor {
+  0% {
+    box-shadow: 0 0 10px rgba(153, 0, 255, 0.6), 0 0 20px rgba(153, 0, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(153, 0, 255, 0.8), 0 0 30px rgba(153, 0, 255, 0.5),
+      0 0 40px rgba(153, 0, 255, 0.3);
+  }
+}
+
+.program-info p:has(.neon-value) {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.program-info p:has(.neon-value) strong {
+  margin-right: 5px;
+}

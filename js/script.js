@@ -363,7 +363,7 @@ function initStepperForm() {
                 <p><strong>Dias:</strong> Segunda, quarta e sexta</p>
                 <p><strong>Horário:</strong> Das 6h às 8h no Ibira</p>
                 <p><strong>Local:</strong> Ponto de hidratação próximo ao Madureira | portão 8 (av Republica do Líbano)</p>
-                <p><strong>Mensalidade:</strong> R$ 250,00</p>
+                <p><strong>Mensalidade:</strong> R$ <span class="neon-value">250</span>,00</p>
             </div>
             <div class="form-group">
                 <div class="checkbox-wrapper" id="termos-wrapper">
