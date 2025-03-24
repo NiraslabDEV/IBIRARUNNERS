@@ -24,7 +24,16 @@
     <!-- Overlay para fechar o menu -->
     <div
       id="menu-overlay"
-      class="fixed inset-0 bg-transparent z-40 hidden"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 990;
+        display: none;
+      "
     ></div>
 
     <!-- Header -->
@@ -66,64 +75,184 @@
             </li>
           </ul>
         </nav>
-        <button class="md:hidden text-2xl z-50" id="menu-toggle">
+        <button
+          id="menu-toggle"
+          class="md:hidden text-2xl text-white"
+          aria-label="Abrir menu mobile"
+        >
           <i class="fas fa-bars"></i>
         </button>
       </div>
-      <!-- Mobile Menu -->
-      <div
-        id="mobile-menu"
-        class="hidden fixed right-0 top-0 h-full w-3/4 z-50 bg-gray-900/95 backdrop-blur-md"
-      >
-        <div class="p-6 flex flex-col h-full">
-          <div class="flex justify-end">
-            <button
-              id="menu-close"
-              class="text-2xl text-gray-400 hover:text-white"
-            >
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
-          <nav class="mt-6 flex-grow">
-            <ul class="space-y-4 text-lg">
-              <li>
-                <a href="#home" class="block py-2 hover:text-purple-400"
-                  >Home</a
-                >
-              </li>
-              <li>
-                <a href="#eventos" class="block py-2 hover:text-purple-400"
-                  >Eventos</a
-                >
-              </li>
-              <li>
-                <a href="#corujao" class="block py-2 hover:text-purple-400"
-                  >Corujão</a
-                >
-              </li>
-              <li>
-                <a href="#marketplace" class="block py-2 hover:text-purple-400"
-                  >Produtos</a
-                >
-              </li>
-              <li>
-                <a href="#parcerias" class="block py-2 hover:text-purple-400"
-                  >Parcerias</a
-                >
-              </li>
-              <li>
-                <a href="#membros" class="block py-2 relative">
-                  Membros
-                  <div class="underline"></div>
-                  <div class="shine"></div>
-                  <i class="fas fa-star star-icon"></i>
-                </a>
-              </li>
-            </ul>
-          </nav>
+    </header>
+
+    <!-- Mobile menu completamente refeito -->
+    <div
+      id="mobile-menu"
+      style="
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100vh;
+        background-color: #111;
+        z-index: 999;
+        transition: right 0.3s ease;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+        overflow-y: auto;
+      "
+    >
+      <div style="padding: 20px">
+        <div
+          style="display: flex; justify-content: flex-end; margin-bottom: 20px"
+        >
+          <button
+            id="menu-close"
+            style="
+              background-color: #333;
+              color: white;
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: none;
+              font-size: 20px;
+            "
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <nav>
+          <ul style="list-style: none; padding: 0; margin: 0">
+            <li style="margin-bottom: 15px">
+              <a
+                href="#home"
+                style="
+                  color: white;
+                  text-decoration: none;
+                  font-size: 18px;
+                  display: block;
+                  padding: 10px 15px;
+                  border-radius: 5px;
+                  transition: background-color 0.3s ease;
+                "
+                >Home</a
+              >
+            </li>
+            <li style="margin-bottom: 15px">
+              <a
+                href="#eventos"
+                style="
+                  color: white;
+                  text-decoration: none;
+                  font-size: 18px;
+                  display: block;
+                  padding: 10px 15px;
+                  border-radius: 5px;
+                  transition: background-color 0.3s ease;
+                "
+                >Eventos</a
+              >
+            </li>
+            <li style="margin-bottom: 15px">
+              <a
+                href="#corujao"
+                style="
+                  color: white;
+                  text-decoration: none;
+                  font-size: 18px;
+                  display: block;
+                  padding: 10px 15px;
+                  border-radius: 5px;
+                  transition: background-color 0.3s ease;
+                "
+                >Corujão</a
+              >
+            </li>
+            <li style="margin-bottom: 15px">
+              <a
+                href="#marketplace"
+                style="
+                  color: white;
+                  text-decoration: none;
+                  font-size: 18px;
+                  display: block;
+                  padding: 10px 15px;
+                  border-radius: 5px;
+                  transition: background-color 0.3s ease;
+                "
+                >Produtos</a
+              >
+            </li>
+            <li style="margin-bottom: 15px">
+              <a
+                href="#parcerias"
+                style="
+                  color: white;
+                  text-decoration: none;
+                  font-size: 18px;
+                  display: block;
+                  padding: 10px 15px;
+                  border-radius: 5px;
+                  transition: background-color 0.3s ease;
+                "
+                >Parcerias</a
+              >
+            </li>
+            <li style="margin-bottom: 15px">
+              <a
+                href="#membros"
+                style="
+                  color: white;
+                  text-decoration: none;
+                  font-size: 18px;
+                  display: block;
+                  padding: 10px 15px;
+                  border-radius: 5px;
+                  background-color: rgba(139, 92, 246, 0.3);
+                  transition: background-color 0.3s ease;
+                "
+                >Membros</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div
+          style="
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            display: flex;
+            gap: 15px;
+          "
+        >
+          <a
+            href="https://www.instagram.com/ibira.runners/"
+            target="_blank"
+            style="color: white; font-size: 24px"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://www.strava.com/clubs/ibirarunners"
+            target="_blank"
+            style="color: #fc5200; font-size: 24px"
+          >
+            <i class="fab fa-strava"></i>
+          </a>
+          <a
+            href="https://wa.me/11963673333"
+            target="_blank"
+            style="color: #25d366; font-size: 24px"
+          >
+            <i class="fab fa-whatsapp"></i>
+          </a>
         </div>
       </div>
-    </header>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="relative h-screen overflow-hidden">
@@ -596,9 +725,173 @@
       </div>
     </section>
 
-    <!-- Corujão Section -->
-    <section id="corujao" class="py-16 dark-gradient relative min-h-screen">
-      <!-- Efeito de Luz Corujão -->
+    <!-- Seção de Parcerias -->
+    <section id="parcerias" class="py-20 parcerias-section">
+      <div class="container mx-auto px-4">
+        <h2
+          class="glitch-text glitch-pink text-3xl md:text-4xl font-bold"
+          data-text="SEJA PARCEIRO"
+        >
+          <span data-text="SEJA PARCEIRO">SEJA PARCEIRO</span>
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-12">
+          <div class="parcerias-container">
+            <div class="parcerias-content">
+              <h3 class="text-2xl font-bold mb-6 metallic-text">
+                Por que ser parceiro do Ibira Runners?
+              </h3>
+              <p class="mb-6">
+                Junte-se à comunidade mais vibrante de runners de São Paulo! Ao
+                se tornar parceiro do Ibira Runners, sua marca ganha
+                visibilidade entre mais de 500 atletas apaixonados e engajados.
+              </p>
+
+              <div class="beneficios-parceiros mt-8">
+                <h4 class="text-xl font-semibold mb-4 text-purple-400">
+                  Benefícios para Parceiros:
+                </h4>
+                <ul class="space-y-4">
+                  <li class="flex items-start">
+                    <div class="parceria-icon-wrapper mr-3 mt-1">
+                      <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <div>
+                      <strong class="text-white">Visibilidade Premium</strong>
+                      <p>
+                        Sua marca em nosso site, redes sociais e eventos
+                        exclusivos.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="parceria-icon-wrapper mr-3 mt-1">
+                      <i class="fas fa-users"></i>
+                    </div>
+                    <div>
+                      <strong class="text-white">Público Engajado</strong>
+                      <p>
+                        Acesso a uma comunidade ativa de corredores de alto
+                        poder aquisitivo.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="parceria-icon-wrapper mr-3 mt-1">
+                      <i class="fas fa-handshake"></i>
+                    </div>
+                    <div>
+                      <strong class="text-white">Ações Exclusivas</strong>
+                      <p>
+                        Possibilidade de ações de ativação e eventos co-branded.
+                      </p>
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="parceria-icon-wrapper mr-3 mt-1">
+                      <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div>
+                      <strong class="text-white">Crescimento Mútuo</strong>
+                      <p>
+                        Parcerias de longo prazo com foco em resultados para
+                        ambos.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mt-10">
+                <p class="mb-4">
+                  Entre em contato através do e-mail:
+                  <span class="contato-destaque">carloskoji@live.com</span>
+                </p>
+                <a
+                  href="https://wa.me/11963673333?text=Olá! Tenho interesse em ser parceiro do Ibira Runners"
+                  class="gooey-btn inline-flex mt-2"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp mr-2"></i> Fale com nosso time
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="parcerias-image-container relative">
+            <div class="flex flex-col items-center justify-center h-full">
+              <div
+                class="bg-opacity-80 backdrop-blur-sm bg-gray-900 p-8 rounded-lg border border-purple-500/30 hover:shadow-purple-500/20 hover:shadow-lg transition-all"
+              >
+                <h3
+                  class="text-2xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500"
+                >
+                  Pacotes de Parceria
+                </h3>
+
+                <div class="space-y-6">
+                  <div
+                    class="p-4 rounded-lg bg-gradient-to-r from-purple-900/30 to-gray-900/30 hover:from-purple-800/40 hover:to-gray-800/40 transition-all transform hover:-translate-y-1"
+                  >
+                    <h4 class="text-xl font-semibold mb-2 text-purple-300">
+                      Parceiro Bronze
+                    </h4>
+                    <ul class="space-y-2 text-gray-300">
+                      <li>• Logo no site</li>
+                      <li>• 1 post por mês nas redes sociais</li>
+                      <li>• Cupom de desconto exclusivo</li>
+                    </ul>
+                  </div>
+
+                  <div
+                    class="p-4 rounded-lg bg-gradient-to-r from-purple-900/40 to-gray-900/40 hover:from-purple-800/50 hover:to-gray-800/50 transition-all transform hover:-translate-y-1"
+                  >
+                    <h4 class="text-xl font-semibold mb-2 text-purple-200">
+                      Parceiro Prata
+                    </h4>
+                    <ul class="space-y-2 text-gray-300">
+                      <li>• Todos os benefícios do Bronze</li>
+                      <li>• Banner nos eventos Corujão</li>
+                      <li>• 1 workshop exclusivo por semestre</li>
+                    </ul>
+                  </div>
+
+                  <div
+                    class="p-4 rounded-lg bg-gradient-to-r from-purple-900/50 to-gray-900/50 hover:from-purple-800/60 hover:to-gray-800/60 transition-all transform hover:-translate-y-1"
+                  >
+                    <h4 class="text-xl font-semibold mb-2 text-white">
+                      Parceiro Ouro
+                    </h4>
+                    <ul class="space-y-2 text-gray-300">
+                      <li>• Todos os benefícios do Prata</li>
+                      <li>• Naming rights em eventos selecionados</li>
+                      <li>• Logo em material exclusivo de membros</li>
+                      <li>• Acesso VIP aos eventos premium</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mt-8 text-center">
+                  <a
+                    href="mailto:carloskoji@live.com?subject=Interesse em Parceria - Ibira Runners"
+                    class="inline-block px-6 py-3 text-white font-semibold rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-purple-500/50"
+                  >
+                    <i class="fas fa-envelope mr-2"></i> Solicitar Proposta
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Depoimentos -->
+    <section
+      id="depoimentos"
+      class="py-16 depoimentos-section relative min-h-[60vh]"
+    >
+      <!-- Efeito de Luz Depoimentos -->
       <div class="absolute inset-0 pointer-events-none">
         <div
           class="absolute w-96 h-96 top-0 left-1/2 transform -translate-x-1/2 bg-blue-500 opacity-5 rounded-full filter blur-3xl"
@@ -607,325 +900,194 @@
           class="absolute w-32 h-32 bottom-48 right-12 bg-purple-500 opacity-10 rounded-full filter blur-2xl"
         ></div>
         <div
-          class="absolute w-48 h-48 top-1/3 left-10 bg-cyan-500 opacity-10 rounded-full filter blur-3xl"
-        ></div>
-      </div>
-
-      <div class="container mx-auto px-4 relative z-10">
-        <div class="text-center mb-12">
-          <h2 class="text-4xl font-bold mb-4 blue-metallic-text">CORUJÃO</h2>
-          <p class="mb-0 text-xl">
-            Domingos, <span class="text-white font-bold">5h da manhã</span>
-          </p>
-          <p class="mb-6 text-lg">
-            <i class="fas fa-map-marker-alt mr-2"></i>Ibirapuera
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 items-center">
-          <div class="relative">
-            <img
-              src="./assets/corujao/PELOTE IBIRA RUNNERS.png"
-              alt="IBIRA RUNNERS no Corujão"
-              class="rounded-lg shadow-xl transition-transform duration-500 hover:scale-105 w-full"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent rounded-lg"
-            ></div>
-          </div>
-
-          <div class="flex flex-col md:flex-row items-center gap-6">
-            <div class="w-full md:w-1/3 flex justify-center">
-              <div
-                class="w-32 h-32 bg-black rounded-full flex items-center justify-center"
-              >
-                <i class="fas fa-clock text-5xl text-silver"></i>
-              </div>
-            </div>
-            <div class="w-full md:w-2/3 text-center md:text-left">
-              <h3 class="text-2xl font-bold mb-4 metallic-text">
-                Próximo Corujão: 23 de Março de 2025
-              </h3>
-              <p class="mb-2">
-                <i class="fas fa-calendar-day mr-2"></i> Acontece todos os
-                domingos
-              </p>
-              <p class="mb-2">
-                <i class="fas fa-hourglass-start mr-2"></i> Horário de chegada:
-                4:30am
-              </p>
-              <p class="mb-4">
-                <i class="fas fa-running mr-2"></i> Início da corrida: 5:00am
-              </p>
-              <a
-                href="https://wa.me/11963673333?text=Quero participar do próximo Corujão"
-                class="gooey-btn inline-flex"
-                target="_blank"
-              >
-                <i class="fab fa-whatsapp mr-2"></i> Participar
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Carrossel Simples - Últimas Edições -->
-        <div class="mt-16">
-          <h3 class="text-2xl font-bold mb-8 text-center metallic-text">
-            ÚLTIMAS EDIÇÕES
-          </h3>
-
-          <!-- Destaque para a última edição -->
-          <div
-            class="max-w-4xl mx-auto bg-gray-900 bg-opacity-70 rounded-lg p-8 border border-gray-700 mb-12"
-          >
-            <div class="flex flex-col items-center mb-4">
-              <span class="text-pink-500 text-sm font-bold mb-2"
-                >ÚLTIMA EDIÇÃO • N011</span
-              >
-              <h3 class="text-2xl font-bold mb-4 metallic-text">
-                Corujão Dia das Mulheres
-              </h3>
-            </div>
-            <div class="relative overflow-hidden rounded-lg mb-6">
-              <img
-                src="./assets/corujao/corujão dia das mulheres.png"
-                alt="Corujão Dia das Mulheres - Edição N011"
-                class="w-full h-auto rounded-lg transition-transform duration-500 hover:scale-105"
-              />
-              <div
-                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent py-4 px-3"
-              >
-                <div class="flex justify-between items-end">
-                  <div>
-                    <span class="text-pink-400 font-bold"
-                      >08.03.25 | SÁBADO</span
-                    >
-                    <p class="text-white font-bold text-xl">5:00 | 12KM</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="text-center mt-4">
-              <p class="mb-4">
-                Não perca a próxima edição do Corujão! Cadastre-se agora e venha
-                correr conosco!
-              </p>
-              <a
-                href="https://wa.me/11963673333?text=Quero me cadastrar para o próximo Corujão"
-                class="gooey-btn inline-flex"
-                target="_blank"
-              >
-                <i class="fab fa-whatsapp mr-2"></i> Cadastrar para o próximo
-              </a>
-            </div>
-          </div>
-
-          <div class="simple-carousel relative max-w-5xl mx-auto">
-            <h4 class="text-xl font-bold mb-6 text-center">
-              Edições Anteriores
-            </h4>
-            <div class="carousel-container overflow-hidden">
-              <div
-                class="carousel-track flex transition-transform duration-500"
-              >
-                <!-- Imagens do carrossel adicionadas manualmente -->
-                <div class="carousel-slide min-w-full md:min-w-[50%] px-2">
-                  <div class="relative overflow-hidden rounded-lg">
-                    <img
-                      src="./assets/corujao/corujão n010 - liberdade 10km.png"
-                      alt="Corujão N010 - Liberdade 10KM"
-                      class="w-full h-auto object-cover"
-                    />
-                    <div
-                      class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent py-4 px-4"
-                    >
-                      <p class="text-white font-bold">
-                        Corujão N010 - Liberdade 10KM
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-slide min-w-full md:min-w-[50%] px-2">
-                  <div class="relative overflow-hidden rounded-lg">
-                    <img
-                      src="./assets/corujao/corujão n010.png"
-                      alt="Corujão N010"
-                      class="w-full h-auto object-cover"
-                    />
-                    <div
-                      class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent py-4 px-4"
-                    >
-                      <p class="text-white font-bold">Corujão N010</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-slide min-w-full md:min-w-[50%] px-2">
-                  <div class="relative overflow-hidden rounded-lg">
-                    <img
-                      src="./assets/corujao/CORUJÃO N009.png"
-                      alt="Corujão N009"
-                      class="w-full h-auto object-cover"
-                    />
-                    <div
-                      class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent py-4 px-4"
-                    >
-                      <p class="text-white font-bold">Corujão N009</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-slide min-w-full md:min-w-[50%] px-2">
-                  <div class="relative overflow-hidden rounded-lg">
-                    <img
-                      src="./assets/corujao/PELOTE IBIRA RUNNERS.png"
-                      alt="Pelotão Ibira Runners"
-                      class="w-full h-auto object-cover"
-                    />
-                    <div
-                      class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent py-4 px-4"
-                    >
-                      <p class="text-white font-bold">Pelotão Ibira Runners</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <button
-              class="carousel-btn prev absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/70 p-3 rounded-full text-white"
-            >
-              <i class="fas fa-chevron-left"></i>
-            </button>
-
-            <button
-              class="carousel-btn next absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/70 p-3 rounded-full text-white"
-            >
-              <i class="fas fa-chevron-right"></i>
-            </button>
-
-            <div class="carousel-indicators flex justify-center mt-4 gap-2">
-              <!-- Indicadores do carrossel serão adicionados via JavaScript -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seção de Parcerias -->
-    <section
-      id="parcerias"
-      class="py-16 parcerias-section relative min-h-[60vh]"
-    >
-      <!-- Efeito de Luz Parcerias -->
-      <div class="absolute inset-0 pointer-events-none">
-        <div
-          class="absolute w-96 h-96 top-0 left-1/2 transform -translate-x-1/2 bg-purple-500 opacity-5 rounded-full filter blur-3xl"
-        ></div>
-        <div
-          class="absolute w-32 h-32 bottom-48 right-12 bg-blue-500 opacity-10 rounded-full filter blur-2xl"
-        ></div>
-        <div
-          class="absolute w-48 h-48 top-1/3 left-10 bg-pink-500 opacity-10 rounded-full filter blur-3xl"
+          class="absolute w-64 h-64 top-1/4 left-10 bg-cyan-500 opacity-10 rounded-full filter blur-3xl"
         ></div>
       </div>
 
       <div class="container mx-auto px-4 relative z-10">
         <h2
-          class="glitch-text glitch-gold text-3xl md:text-4xl font-bold"
-          data-text="SEJA PARCEIRO"
+          class="glitch-text glitch-cyan text-3xl md:text-4xl font-bold mb-12"
+          data-text="DEPOIMENTOS"
         >
-          <span data-text="SEJA PARCEIRO">SEJA PARCEIRO</span>
+          <span data-text="DEPOIMENTOS">DEPOIMENTOS</span>
         </h2>
 
-        <div class="max-w-4xl mx-auto mt-10 parcerias-container">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div class="parcerias-content">
-              <h3 class="text-2xl font-bold mb-6 metallic-text">
-                Faça parte do nosso sucesso
-              </h3>
-              <p class="mb-6">
-                Estamos em busca de marcas e empresas que compartilham nossa
-                paixão pela corrida e estilo de vida saudável. Se sua empresa
-                quer atingir uma comunidade de corredores ativos e engajados,
-                temos a solução perfeita.
-              </p>
-              <div class="beneficios-parceiros mb-8">
-                <h4 class="text-xl font-semibold mb-4">
-                  Benefícios para Parceiros:
-                </h4>
-                <ul class="space-y-3">
-                  <li class="flex items-center">
-                    <span class="parceria-icon-wrapper mr-3"
-                      ><i class="fas fa-bullseye"></i
-                    ></span>
-                    <span>Exposição para mais de 2.500 corredores ativos</span>
-                  </li>
-                  <li class="flex items-center">
-                    <span class="parceria-icon-wrapper mr-3"
-                      ><i class="fas fa-handshake"></i
-                    ></span>
-                    <span>Ativações em eventos exclusivos IBIRA RUNNERS</span>
-                  </li>
-                  <li class="flex items-center">
-                    <span class="parceria-icon-wrapper mr-3"
-                      ><i class="fas fa-tags"></i
-                    ></span>
-                    <span
-                      >Código de desconto exclusivo para nossos membros</span
-                    >
-                  </li>
-                  <li class="flex items-center">
-                    <span class="parceria-icon-wrapper mr-3"
-                      ><i class="fas fa-bullhorn"></i
-                    ></span>
-                    <span>Divulgação nos nossos canais de mídia social</span>
-                  </li>
-                </ul>
+        <div class="depoimentos-container">
+          <!-- Carrossel de Depoimentos -->
+          <div class="depoimentos-carrossel">
+            <div class="depoimentos-track">
+              <!-- Depoimento 1 -->
+              <div class="depoimento-card">
+                <div class="depoimento-perfil">
+                  <div class="depoimento-avatar">
+                    <div class="avatar-wrapper">
+                      <img
+                        src="https://randomuser.me/api/portraits/men/42.jpg"
+                        alt="Rodrigo Lima"
+                        class="avatar-img"
+                      />
+                    </div>
+                  </div>
+                  <div class="depoimento-info">
+                    <h3 class="metallic-text">Rodrigo Lima, 34</h3>
+                    <p class="membro-desde">Membro desde 2023</p>
+                  </div>
+                </div>
+                <blockquote class="depoimento-texto">
+                  "Entrei para o Ibira Runners após uma lesão que quase me fez
+                  desistir de correr. Com o suporte da equipe e dos outros
+                  membros, não só voltei a correr como completei minha primeira
+                  meia maratona!"
+                </blockquote>
+                <div class="depoimento-metrics">
+                  <div class="metric">
+                    <span class="metric-value">42km</span>
+                    <span class="metric-label">Recorde</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">-15kg</span>
+                    <span class="metric-label">Perda de peso</span>
+                  </div>
+                </div>
               </div>
-              <div class="parceria-cta">
-                <p class="font-semibold mb-4 contato-destaque">
-                  Entre em contato através de:
-                </p>
-                <div class="flex flex-wrap gap-4">
-                  <a
-                    href="mailto:carloskoji@live.com"
-                    class="contato-parceria-btn email-btn"
-                  >
-                    <i class="fas fa-envelope mr-2"></i> carloskoji@live.com
-                  </a>
-                  <a
-                    href="https://wa.me/11963673333?text=Olá! Tenho interesse em uma parceria com o IBIRA RUNNERS"
-                    class="contato-parceria-btn whatsapp-btn"
-                    target="_blank"
-                  >
-                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp
-                  </a>
+
+              <!-- Depoimento 2 -->
+              <div class="depoimento-card">
+                <div class="depoimento-perfil">
+                  <div class="depoimento-avatar">
+                    <div class="avatar-wrapper">
+                      <img
+                        src="https://randomuser.me/api/portraits/women/28.jpg"
+                        alt="Carla Mendes"
+                        class="avatar-img"
+                      />
+                    </div>
+                  </div>
+                  <div class="depoimento-info">
+                    <h3 class="metallic-text">Carla Mendes, 29</h3>
+                    <p class="membro-desde">Membro desde 2022</p>
+                  </div>
+                </div>
+                <blockquote class="depoimento-texto">
+                  "Nunca fui atleta, comecei do zero com o Ibira Runners. O
+                  acompanhamento e a energia do grupo são incríveis! Hoje corro
+                  10km com facilidade e faço parte dos Corujões todo domingo."
+                </blockquote>
+                <div class="depoimento-metrics">
+                  <div class="metric">
+                    <span class="metric-value">21km</span>
+                    <span class="metric-label">Recorde</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">12</span>
+                    <span class="metric-label">Corridas</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Depoimento 3 -->
+              <div class="depoimento-card">
+                <div class="depoimento-perfil">
+                  <div class="depoimento-avatar">
+                    <div class="avatar-wrapper">
+                      <img
+                        src="https://randomuser.me/api/portraits/men/65.jpg"
+                        alt="Marcelo Santos"
+                        class="avatar-img"
+                      />
+                    </div>
+                  </div>
+                  <div class="depoimento-info">
+                    <h3 class="metallic-text">Marcelo Santos, 45</h3>
+                    <p class="membro-desde">Membro desde 2024</p>
+                  </div>
+                </div>
+                <blockquote class="depoimento-texto">
+                  "Aos 45 anos, pensava que era tarde para começar a correr. O
+                  Ibira Runners me mostrou que idade é apenas um número. O
+                  ambiente inclusivo e motivador foi essencial para minha
+                  evolução."
+                </blockquote>
+                <div class="depoimento-metrics">
+                  <div class="metric">
+                    <span class="metric-value">15km</span>
+                    <span class="metric-label">Recorde</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">+40%</span>
+                    <span class="metric-label">Resistência</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Depoimento 4 -->
+              <div class="depoimento-card">
+                <div class="depoimento-perfil">
+                  <div class="depoimento-avatar">
+                    <div class="avatar-wrapper">
+                      <img
+                        src="https://randomuser.me/api/portraits/women/56.jpg"
+                        alt="Paula Ferreira"
+                        class="avatar-img"
+                      />
+                    </div>
+                  </div>
+                  <div class="depoimento-info">
+                    <h3 class="metallic-text">Paula Ferreira, 31</h3>
+                    <p class="membro-desde">Membro desde 2023</p>
+                  </div>
+                </div>
+                <blockquote class="depoimento-texto">
+                  "O Corujão mudou minha vida! Nunca pensei que acordar às 4h
+                  para correr seria algo que eu amaria fazer. A comunidade Ibira
+                  Runners se tornou minha segunda família."
+                </blockquote>
+                <div class="depoimento-metrics">
+                  <div class="metric">
+                    <span class="metric-value">30km</span>
+                    <span class="metric-label">Recorde</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-value">8</span>
+                    <span class="metric-label">Corujões</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="parcerias-image-container">
-              <div class="parceria-logo-wrapper">
-                <img
-                  src="./assets/LOGO-IBIRA.png"
-                  alt="IBIRA RUNNERS LOGO"
-                  class="parceria-logo"
-                />
+            <!-- Controles do Carrossel -->
+            <div class="depoimentos-controles">
+              <button class="depoimento-btn prev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <div class="depoimentos-indicadores">
+                <span class="indicador active" data-index="0"></span>
+                <span class="indicador" data-index="1"></span>
+                <span class="indicador" data-index="2"></span>
+                <span class="indicador" data-index="3"></span>
               </div>
-              <div class="parceria-stats">
-                <div class="stat-item">
-                  <span class="stat-number neon-value">2500+</span>
-                  <span class="stat-label">Corredores</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-number neon-value">8+</span>
-                  <span class="stat-label">Parceiros Atuais</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-number neon-value">12+</span>
-                  <span class="stat-label">Eventos por Ano</span>
-                </div>
-              </div>
+              <button class="depoimento-btn next">
+                <i class="fas fa-chevron-right"></i>
+              </button>
             </div>
+          </div>
+
+          <!-- CTA Compartilhe sua História -->
+          <div class="compartilhe-historia">
+            <h3 class="text-xl font-bold mb-4">
+              Tem uma história para compartilhar?
+            </h3>
+            <p class="mb-6">
+              Somos uma comunidade que celebra cada conquista. Conte-nos como o
+              Ibira Runners transformou sua jornada na corrida!
+            </p>
+            <a
+              href="https://wa.me/11963673333?text=Olá! Gostaria de compartilhar minha história com o Ibira Runners"
+              class="gooey-btn"
+              target="_blank"
+            >
+              <i class="fas fa-share-alt mr-2"></i> Compartilhe Sua História
+            </a>
           </div>
         </div>
       </div>

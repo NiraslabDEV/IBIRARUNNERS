@@ -6,36 +6,52 @@ document.addEventListener("DOMContentLoaded", function () {
     element.setAttribute("data-text", element.textContent);
   });
 
-  // Menu móvel
+  // Menu mobile - Implementação completamente nova e simplificada
   const menuToggle = document.getElementById("menu-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
   const menuOverlay = document.getElementById("menu-overlay");
+  const menuClose = document.getElementById("menu-close");
+  const menuLinks = mobileMenu ? mobileMenu.querySelectorAll("a") : [];
 
-  if (menuToggle && mobileMenu && menuOverlay) {
-    menuToggle.addEventListener("click", function () {
-      mobileMenu.classList.toggle("hidden");
-      if (!mobileMenu.classList.contains("hidden")) {
-        menuOverlay.classList.remove("hidden");
-      } else {
-        menuOverlay.classList.add("hidden");
-      }
-    });
+  // Função para abrir o menu
+  function openMenu() {
+    if (menuOverlay) menuOverlay.style.display = "block";
+    if (mobileMenu) mobileMenu.style.right = "0"; // Mover para dentro da tela
+    document.body.style.overflow = "hidden"; // Impedir rolagem
+  }
 
-    // Fechar menu ao clicar fora
-    menuOverlay.addEventListener("click", function () {
-      mobileMenu.classList.add("hidden");
-      menuOverlay.classList.add("hidden");
-    });
+  // Função para fechar o menu
+  function closeMenu() {
+    if (menuOverlay) menuOverlay.style.display = "none";
+    if (mobileMenu) mobileMenu.style.right = "-300px"; // Mover para fora da tela
+    document.body.style.overflow = ""; // Restaurar rolagem
+  }
 
-    // Fechar menu ao clicar em um link do menu
-    const menuLinks = mobileMenu.querySelectorAll("a");
-    menuLinks.forEach(function (link) {
-      link.addEventListener("click", function () {
-        mobileMenu.classList.add("hidden");
-        menuOverlay.classList.add("hidden");
-      });
+  // Adicionar evento de clique ao botão de abrir menu
+  if (menuToggle) {
+    menuToggle.addEventListener("click", function (e) {
+      e.preventDefault();
+      openMenu();
     });
   }
+
+  // Adicionar evento de clique ao botão de fechar
+  if (menuClose) {
+    menuClose.addEventListener("click", function (e) {
+      e.preventDefault();
+      closeMenu();
+    });
+  }
+
+  // Fechar ao clicar no overlay
+  if (menuOverlay) {
+    menuOverlay.addEventListener("click", closeMenu);
+  }
+
+  // Fechar ao clicar em links do menu
+  menuLinks.forEach(function (link) {
+    link.addEventListener("click", closeMenu);
+  });
 
   // Inicializar o efeito de partículas 3D
   initParticlesEffect();
@@ -48,6 +64,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Inicializar o formulário stepper
   initStepperForm();
+
+  // Inicializar o carrossel de depoimentos
+  initDepoimentosCarrossel();
 });
 
 // Efeito de partículas 3D para a HOME
@@ -696,3 +715,52 @@ window.addEventListener("scroll", function () {
     }
   });
 });
+
+// Inicializar o carrossel de depoimentos
+function initDepoimentosCarrossel() {
+  // Elementos do carrossel
+  const track = document.querySelector(".depoimentos-track");
+  const slides = document.querySelectorAll(".depoimento-card");
+  const prevBtn = document.querySelector(".depoimento-btn.prev");
+  const nextBtn = document.querySelector(".depoimento-btn.next");
+  const indicators = document.querySelectorAll(".indicador");
+
+  if (!track || !slides.length || !prevBtn || !nextBtn) return;
+
+  let currentIndex = 0;
+
+  // Função para mover o slide
+  function moveToSlide(index) {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+
+    track.style.transform = `translateX(-${index * 100}%)`;
+    currentIndex = index;
+
+    // Atualizar indicadores
+    indicators.forEach((indicator, i) => {
+      indicator.classList.toggle("active", i === currentIndex);
+    });
+  }
+
+  // Eventos de clique
+  prevBtn.addEventListener("click", () => moveToSlide(currentIndex - 1));
+  nextBtn.addEventListener("click", () => moveToSlide(currentIndex + 1));
+
+  // Clique nos indicadores
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener("click", () => moveToSlide(index));
+  });
+
+  // Autoplay
+  let autoplayInterval = setInterval(() => moveToSlide(currentIndex + 1), 8000);
+
+  // Pausar autoplay ao passar o mouse
+  track.addEventListener("mouseenter", () => clearInterval(autoplayInterval));
+  track.addEventListener("mouseleave", () => {
+    autoplayInterval = setInterval(() => moveToSlide(currentIndex + 1), 8000);
+  });
+
+  // Inicializar
+  moveToSlide(0);
+}

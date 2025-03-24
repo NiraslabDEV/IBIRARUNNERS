@@ -62,7 +62,39 @@ h2::after {
 
 /* Menu overlay para fechar o menu ao clicar fora */
 #menu-overlay {
-  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 45;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+/* Estilos do menu mobile */
+
+
+
+#menu-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background-color: rgba(75, 0, 130, 0.3);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#menu-close:hover {
+  background-color: rgba(75, 0, 130, 0.5);
+  transform: rotate(90deg);
 }
 
 /* Header mais fino */
@@ -189,19 +221,6 @@ header .logo-container img {
 }
 
 /* Efeito neon para o item "Seja Membro" no menu mobile */
-#mobile-menu a[href="#membros"] {
-  position: relative;
-  color: rgba(153, 0, 255, 0.9) !important;
-  text-shadow: 0 0 5px rgba(153, 0, 255, 0.5), 0 0 10px rgba(153, 0, 255, 0.3);
-  transition: all 0.3s ease;
-  padding: 5px 15px 5px 25px; /* Adicionado espaço à esquerda para o ícone */
-  border-radius: 20px;
-  background: rgba(153, 0, 255, 0.05);
-  overflow: hidden;
-  font-weight: 700;
-  animation: pulseMembroMobile 2s infinite alternate;
-  border: 1px solid rgba(153, 0, 255, 0.2);
-}
 
 /* Animação de pulsação para o item "Seja Membro" */
 @keyframes pulseMembroMobile {
@@ -216,40 +235,8 @@ header .logo-container img {
 }
 
 /* Linha sublinhada que aparece ao passar o mouse */
-#mobile-menu a[href="#membros"] .underline {
-  content: "";
-  position: absolute;
-  bottom: 3px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(153, 0, 255, 0.8),
-    transparent
-  );
-  transition: width 0.3s ease;
-}
 
 /* Adiciona efeito de brilho que percorre o item */
-#mobile-menu a[href="#membros"] .shine {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -100%;
-  width: 80%;
-  height: 200%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(153, 0, 255, 0.2),
-    transparent
-  );
-  transform: rotate(25deg);
-  animation: shineEffect 3s infinite;
-}
 
 @keyframes shineEffect {
   0% {
@@ -261,31 +248,9 @@ header .logo-container img {
   }
 }
 
-#mobile-menu a[href="#membros"]:hover {
-  color: rgba(153, 0, 255, 1) !important;
-  text-shadow: 0 0 8px rgba(153, 0, 255, 0.7), 0 0 15px rgba(153, 0, 255, 0.5);
-  transform: scale(1.05);
-  background: rgba(153, 0, 255, 0.1);
-  box-shadow: 0 0 10px rgba(153, 0, 255, 0.3);
-}
 
-#mobile-menu a[href="#membros"]:hover .underline {
-  width: 80%;
-}
 
 /* Adiciona um icone especial para o menu item */
-#mobile-menu a[href="#membros"] .star-icon {
-  content: "✶";
-  position: absolute;
-  left: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 14px;
-  opacity: 0.8;
-  color: rgba(153, 0, 255, 1);
-  text-shadow: 0 0 5px rgba(153, 0, 255, 0.7);
-  animation: rotateStar 3s linear infinite;
-}
 
 @keyframes rotateStar {
   0% {
@@ -309,7 +274,6 @@ header .logo-container img {
     height: 10px;
   }
 
-  #mobile-menu a[href="#membros"] {
     margin: 10px auto;
     padding: 8px 20px 8px 30px;
     display: inline-block;
@@ -318,7 +282,6 @@ header .logo-container img {
     box-shadow: 0 0 15px rgba(153, 0, 255, 0.5);
   }
 
-  #mobile-menu a[href="#membros"]:hover {
     transform: scale(1.15);
   }
 }
@@ -3573,7 +3536,6 @@ section#fundador .max-w-lg h3.metallic-text:hover::after {
     background-position: 200% 0;
   }
 }
-
 /* Animação para a borda embaixo da seção */
 .mb-8.pb-8.border-b.border-gray-700 {
   position: relative;
