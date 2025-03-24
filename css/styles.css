@@ -4224,3 +4224,440 @@ section#fundador .max-w-lg h3.metallic-text:hover::after {
     height: 150px;
   }
 }
+
+/* Estilos para a Seção de Depoimentos */
+.depoimentos-section {
+  position: relative;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.depoimentos-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 180, 216, 0.1) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  background-size: 100% 100%;
+  opacity: 0.7;
+  z-index: 0;
+  animation: pulsarDepoimentosBg 8s ease-in-out infinite;
+}
+
+.depoimentos-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 180, 216, 0),
+    rgba(0, 180, 216, 0.5),
+    rgba(0, 180, 216, 0)
+  );
+  z-index: 1;
+  animation: slideBorderDepoimentos 5s ease-in-out infinite;
+}
+
+@keyframes pulsarDepoimentosBg {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes slideBorderDepoimentos {
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+}
+
+.depoimentos-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.depoimentos-carrossel {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.depoimentos-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.depoimento-card {
+  min-width: 100%;
+  background: rgba(16, 16, 20, 0.7);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 0 20px rgba(0, 180, 216, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.depoimento-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 180, 216, 0.1) 0%,
+    rgba(0, 0, 0, 0) 50%
+  );
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.depoimento-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 180, 216, 0.3);
+}
+
+.depoimento-perfil {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+
+.depoimento-avatar {
+  flex-shrink: 0;
+}
+
+.avatar-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(145deg, #000, #111);
+  padding: 3px;
+  background-clip: padding-box;
+}
+
+.avatar-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #00b4d8, #7928ca, #00b4d8);
+  border-radius: 50%;
+  z-index: -1;
+  animation: rotateDepoimentoAvatar 6s linear infinite;
+}
+
+@keyframes rotateDepoimentoAvatar {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.depoimento-card:hover .avatar-img {
+  transform: scale(1.1);
+}
+
+.depoimento-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+
+.membro-desde {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.depoimento-texto {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  border-left: 3px solid rgba(0, 180, 216, 0.5);
+  color: rgba(255, 255, 255, 0.85);
+  font-style: italic;
+  position: relative;
+}
+
+.depoimento-texto::before {
+  content: '"';
+  font-family: Georgia, serif;
+  font-size: 3rem;
+  color: rgba(0, 180, 216, 0.2);
+  position: absolute;
+  top: -15px;
+  left: -10px;
+  z-index: -1;
+}
+
+.depoimento-texto::after {
+  content: '"';
+  font-family: Georgia, serif;
+  font-size: 3rem;
+  color: rgba(0, 180, 216, 0.2);
+  position: absolute;
+  bottom: -40px;
+  right: 0;
+  z-index: -1;
+}
+
+.depoimento-metrics {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.metric {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 180, 216, 0.1);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.metric:hover {
+  transform: translateY(-3px);
+  background: rgba(0, 180, 216, 0.1);
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #00b4d8;
+  margin-bottom: 5px;
+  font-family: "Orbitron", sans-serif;
+  text-shadow: 0 0 5px rgba(0, 180, 216, 0.5);
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.depoimentos-controles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.depoimento-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 180, 216, 0.3);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.depoimento-btn:hover {
+  background: rgba(0, 180, 216, 0.3);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 180, 216, 0.5);
+}
+
+.depoimentos-indicadores {
+  display: flex;
+  gap: 8px;
+}
+
+.indicador {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicador.active {
+  background: rgba(0, 180, 216, 0.8);
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(0, 180, 216, 0.7);
+}
+
+.compartilhe-historia {
+  background: rgba(20, 20, 25, 0.7);
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.compartilhe-historia::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 180, 216, 0.05) 0%,
+    rgba(0, 0, 0, 0) 60%
+  );
+  z-index: -1;
+}
+
+.compartilhe-historia h3 {
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.compartilhe-historia h3::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 180, 216, 0),
+    rgba(0, 180, 216, 1),
+    rgba(0, 180, 216, 0)
+  );
+  transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .depoimento-card {
+    padding: 1rem;
+  }
+  .depoimento-perfil {
+    flex-direction: column;
+    align-items: center;
+  }
+  .depoimento-info {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  z-index: 1;
+}
+
+.parcerias-image-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(153, 0, 255, 0.15) 0%,
+      rgba(0, 0, 0, 0) 50%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(255, 105, 180, 0.15) 0%,
+      rgba(0, 0, 0, 0) 50%
+    );
+  z-index: -1;
+  animation: moveBgParcerias 20s ease-in-out infinite alternate;
+}
+
+@keyframes moveBgParcerias {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+/* Efeito futurista para o grid de pacotes */
+.parcerias-image-container .bg-opacity-80 {
+  position: relative;
+  z-index: 2;
+}
+
+.parcerias-image-container .bg-opacity-80::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(153, 0, 255, 0.05) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(153, 0, 255, 0.05) 50%,
+    rgba(153, 0, 255, 0.05) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 4px 4px;
+  z-index: -1;
+  opacity: 0.2;
+  pointer-events: none;
+  animation: moveBgGrid 10s linear infinite;
+}
+
+@keyframes moveBgGrid {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
