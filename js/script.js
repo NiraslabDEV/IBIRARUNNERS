@@ -248,27 +248,36 @@ function initSimpleCarousel() {
   const nextButton = carousel.querySelector(".carousel-btn.next");
   const indicators = carousel.querySelector(".carousel-indicators");
 
-  // Imagens para o carrossel (Últimas edições do Corujão)
+  // Limpar conteúdo existente
+  if (carouselTrack) carouselTrack.innerHTML = "";
+  if (indicators) indicators.innerHTML = "";
+
+  // Imagens para o carrossel - Usando imagens reais do Corujão
   const slides = [
     {
-      src: "https://placehold.co/1200x600/111111/CCCCCC?text=Corujão+Janeiro+2025",
-      alt: "Corujão Janeiro 2025",
-      caption: "Corujão Especial de Janeiro 2025 - 180 participantes",
+      src: "./assets/corujao/corujão dia das mulheres.png",
+      alt: "Corujão Especial Dia das Mulheres",
+      caption: "Corujão Especial - Dia das Mulheres",
     },
     {
-      src: "https://placehold.co/1200x600/111111/CCCCCC?text=Corujão+Dezembro+2024",
-      alt: "Corujão Dezembro 2024",
-      caption: "Corujão de Natal 2024 - Edição especial com café da manhã",
+      src: "./assets/corujao/corujão n010.png",
+      alt: "Corujão N010",
+      caption: "Corujão N010",
     },
     {
-      src: "https://placehold.co/1200x600/111111/CCCCCC?text=Corujão+Novembro+2024",
-      alt: "Corujão Novembro 2024",
-      caption: "Corujão de Novembro 2024 - Percurso estendido de 12km",
+      src: "./assets/corujao/corujão n010 - liberdade 10km.png",
+      alt: "Corujão N010 - Liberdade 10km",
+      caption: "Corujão N010 - Corrida da Liberdade 10km",
     },
     {
-      src: "https://placehold.co/1200x600/111111/CCCCCC?text=Corujão+Outubro+2024",
-      alt: "Corujão Outubro 2024",
-      caption: "Corujão Especial Outubro Rosa 2024",
+      src: "./assets/corujao/CORUJÃO N009.png",
+      alt: "Corujão N009",
+      caption: "Corujão N009",
+    },
+    {
+      src: "./assets/corujao/PELOTE IBIRA RUNNERS.png",
+      alt: "Pelote Ibira Runners",
+      caption: "Pelote Especial Ibira Runners",
     },
   ];
 
@@ -278,11 +287,28 @@ function initSimpleCarousel() {
     const slideElement = document.createElement("div");
     slideElement.classList.add("carousel-slide");
 
+    // Wrapper para melhor controle da imagem
+    const imgWrapper = document.createElement("div");
+    imgWrapper.classList.add("img-wrapper");
+    imgWrapper.style.display = "flex";
+    imgWrapper.style.justifyContent = "center";
+    imgWrapper.style.alignItems = "center";
+
     // Adicionar imagem
     const img = document.createElement("img");
     img.src = slide.src;
     img.alt = slide.alt;
-    slideElement.appendChild(img);
+    img.style.maxHeight = "100%";
+    img.style.maxWidth = "100%";
+    img.loading = "lazy"; // Lazy loading para melhor performance
+
+    // Pré-carregar imagem para melhor qualidade
+    img.onload = function () {
+      this.classList.add("loaded");
+    };
+
+    imgWrapper.appendChild(img);
+    slideElement.appendChild(imgWrapper);
 
     // Adicionar legenda
     const caption = document.createElement("div");
@@ -341,6 +367,16 @@ function initSimpleCarousel() {
 
   nextButton.addEventListener("click", () => {
     goToSlide(currentSlide + 1);
+  });
+
+  // Adicionar eventos de teclado para acessibilidade
+  carousel.setAttribute("tabindex", "0");
+  carousel.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") {
+      goToSlide(currentSlide - 1);
+    } else if (e.key === "ArrowRight") {
+      goToSlide(currentSlide + 1);
+    }
   });
 
   // Autoplay
@@ -654,7 +690,331 @@ function initStepperForm() {
       return;
     }
 
-    // Exibir mensagem de confirmação
+    // Coletar todos os dados do formulário
+    const formData = {
+      nome: document.querySelector("#nome")?.value || "",
+      telefone: document.querySelector("#telefone")?.value || "",
+      email: document.querySelector("#email")?.value || "",
+      idade: document.querySelector("#idade")?.value || "",
+      motivo: document.querySelector("textarea[name='motivo']")?.value || "",
+      distancia:
+        document.querySelector("input[name='distancia']:checked")?.value || "",
+      emergencia: document.querySelector("#emergencia")?.value || "",
+      dataInscricao: new Date().toLocaleString("pt-BR"),
+    };
+
+    // Salvar no localStorage como backup
+    localStorage.setItem("ultimaInscricao", JSON.stringify(formData));
+
+    // Criar um popup de agradecimento mais atraente
+    const popupHTML = `
+      <div class="thank-you-popup">
+        <div class="thank-you-content">
+          <div class="success-animation">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+              <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+          </div>
+          
+          <h2 class="glitch-text thank-you-title" data-text="CADASTRO CONCLUÍDO!">CADASTRO CONCLUÍDO!</h2>
+          
+          <div class="thank-you-message">
+            <p class="metallic-text message-highlight">Bem-vindo(a) à comunidade Ibira Runners!</p>
+            <p>Seus dados foram enviados com sucesso. Entraremos em contato pelo WhatsApp em breve para confirmar sua inscrição.</p>
+            
+            <div class="member-benefits">
+              <h3>Próximos passos:</h3>
+              <ul>
+                <li><i class="fas fa-check"></i> Aguarde nosso contato em até 48h</li>
+                <li><i class="fas fa-check"></i> Siga-nos no Instagram para ficar por dentro dos eventos</li>
+                <li><i class="fas fa-check"></i> Entre no grupo do WhatsApp da comunidade</li>
+              </ul>
+            </div>
+            
+            <div class="share-container">
+              <p>Compartilhe nas redes:</p>
+              <div class="social-share-buttons">
+                <a href="https://www.instagram.com/ibira.runners/" target="_blank" class="social-btn instagram-btn">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/?text=Acabei%20de%20me%20inscrever%20no%20Ibira%20Runners!%20https://ibirarunners.com.br" target="_blank" class="social-btn whatsapp-btn">
+                  <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://t.me/share/url?url=https://ibirarunners.com.br&text=Acabei%20de%20me%20inscrever%20no%20Ibira%20Runners!" target="_blank" class="social-btn telegram-btn">
+                  <i class="fab fa-telegram"></i>
+                </a>
+              </div>
+            </div>
+            
+            <div class="button-container">
+              <a href="#home" class="gooey-btn">Voltar para o Início</a>
+              <a href="#marketplace" class="gooey-btn btn-secondary">Confira Nossos Produtos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <style>
+        .thank-you-popup {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 1000;
+          background-color: rgba(0, 0, 0, 0.85);
+          animation: fadeIn 0.5s ease;
+          backdrop-filter: blur(8px);
+        }
+        
+        .thank-you-content {
+          background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+          border-radius: 15px;
+          padding: 2.5rem;
+          max-width: 600px;
+          width: 90%;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 
+                      0 0 30px rgba(138, 43, 226, 0.3);
+          border: 1px solid rgba(138, 43, 226, 0.3);
+          transform: translateY(30px);
+          animation: slideUp 0.6s ease forwards 0.3s;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .thank-you-content::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: linear-gradient(
+            to bottom right, 
+            transparent, 
+            transparent, 
+            transparent, 
+            rgba(138, 43, 226, 0.1), 
+            transparent, 
+            transparent, 
+            transparent
+          );
+          transform: rotate(30deg);
+          animation: shine 3s infinite;
+        }
+        
+        .thank-you-title {
+          margin-bottom: 1.5rem;
+          color: #fff;
+          font-family: 'Orbitron', sans-serif;
+          font-size: 2rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          animation: pulse 2s infinite;
+        }
+        
+        .thank-you-message {
+          color: #e0e0e0;
+          margin-bottom: 1.5rem;
+          font-size: 1rem;
+          line-height: 1.6;
+        }
+        
+        .message-highlight {
+          font-size: 1.2rem;
+          margin-bottom: 1rem;
+          color: #fff;
+          font-weight: 600;
+        }
+        
+        .member-benefits {
+          background-color: rgba(138, 43, 226, 0.1);
+          border-radius: 10px;
+          padding: 1.25rem;
+          margin: 1.5rem 0;
+          text-align: left;
+        }
+        
+        .member-benefits h3 {
+          margin-bottom: 0.75rem;
+          color: #b388ff;
+          font-weight: 600;
+        }
+        
+        .member-benefits ul {
+          list-style: none;
+          padding: 0;
+        }
+        
+        .member-benefits li {
+          margin-bottom: 0.5rem;
+          display: flex;
+          align-items: center;
+        }
+        
+        .member-benefits li i {
+          color: #b388ff;
+          margin-right: 0.5rem;
+        }
+        
+        .share-container {
+          margin: 1.5rem 0;
+        }
+        
+        .social-share-buttons {
+          display: flex;
+          justify-content: center;
+          gap: 1rem;
+          margin-top: 0.75rem;
+        }
+        
+        .social-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          font-size: 1.25rem;
+          transition: all 0.3s ease;
+          background: #222;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-btn:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .instagram-btn { color: #C13584; }
+        .instagram-btn:hover { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); color: white; }
+        
+        .whatsapp-btn { color: #25D366; }
+        .whatsapp-btn:hover { background-color: #25D366; color: white; }
+        
+        .telegram-btn { color: #0088cc; }
+        .telegram-btn:hover { background-color: #0088cc; color: white; }
+        
+        .button-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1rem;
+          margin-top: 2rem;
+        }
+        
+        .btn-secondary {
+          background: #222;
+          border: 1px solid rgba(138, 43, 226, 0.5);
+        }
+        
+        .btn-secondary:hover {
+          background: rgba(138, 43, 226, 0.2);
+        }
+        
+        /* Animações */
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+          from { transform: translateY(30px); opacity: 0.8; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes shine {
+          0% { transform: rotate(30deg) translateY(100%); }
+          100% { transform: rotate(30deg) translateY(-100%); }
+        }
+        
+        @keyframes pulse {
+          0% { text-shadow: 0 0 10px rgba(138, 43, 226, 0.5), 0 0 20px rgba(138, 43, 226, 0.3); }
+          50% { text-shadow: 0 0 15px rgba(138, 43, 226, 0.8), 0 0 30px rgba(138, 43, 226, 0.5); }
+          100% { text-shadow: 0 0 10px rgba(138, 43, 226, 0.5), 0 0 20px rgba(138, 43, 226, 0.3); }
+        }
+        
+        /* Animação do checkmark */
+        .success-animation {
+          margin: 0 auto 2rem;
+          width: 80px;
+          height: 80px;
+        }
+        
+        .checkmark {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          display: block;
+          stroke-width: 2;
+          stroke: #b388ff;
+          stroke-miterlimit: 10;
+          box-shadow: inset 0 0 0 #b388ff;
+          animation: fillCheckmark 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+        }
+        
+        .checkmark-circle {
+          stroke-dasharray: 166;
+          stroke-dashoffset: 166;
+          stroke-width: 2;
+          stroke-miterlimit: 10;
+          stroke: #b388ff;
+          fill: none;
+          animation: strokeCheckmark 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+        
+        .checkmark-check {
+          transform-origin: 50% 50%;
+          stroke-dasharray: 48;
+          stroke-dashoffset: 48;
+          animation: strokeCheckmark 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+        }
+        
+        @keyframes strokeCheckmark {
+          100% { stroke-dashoffset: 0; }
+        }
+        
+        @keyframes fillCheckmark {
+          100% { box-shadow: inset 0 0 0 30px transparent; }
+        }
+        
+        @keyframes scale {
+          0%, 100% { transform: none; }
+          50% { transform: scale3d(1.1, 1.1, 1); }
+        }
+        
+        /* Responsivo */
+        @media (max-width: 600px) {
+          .thank-you-content {
+            padding: 1.5rem;
+          }
+          
+          .thank-you-title {
+            font-size: 1.5rem;
+          }
+          
+          .button-container {
+            flex-direction: column;
+          }
+          
+          .gooey-btn {
+            width: 100%;
+          }
+        }
+        
+        @keyframes fadeOut {
+          from { opacity: 1; }
+          to { opacity: 0; }
+        }
+      </style>
+    `;
+
+    // Substituir o conteúdo do formulário por uma mensagem de confirmação simples
     stepperForm.innerHTML = `
       <div class="text-center py-8">
         <i class="fas fa-check-circle text-6xl mb-4" style="color: var(--silver);"></i>
@@ -664,6 +1024,98 @@ function initStepperForm() {
         <a href="#home" class="gooey-btn">Voltar para o Início</a>
       </div>
     `;
+
+    // Adicionar o popup animado
+    document.body.insertAdjacentHTML("beforeend", popupHTML);
+
+    // Adicionar efeito de glitch ao título do popup
+    setTimeout(() => {
+      const glitchText = document.querySelector(
+        ".thank-you-popup .glitch-text"
+      );
+      if (glitchText) {
+        glitchText.setAttribute("data-text", glitchText.textContent);
+      }
+    }, 100);
+
+    // Fechar o popup ao clicar em qualquer botão dentro dele
+    const popupButtons = document.querySelectorAll(".thank-you-popup a");
+    popupButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const popup = document.querySelector(".thank-you-popup");
+        if (popup) {
+          popup.style.animation = "fadeOut 0.5s ease forwards";
+          setTimeout(() => {
+            popup.remove();
+          }, 500);
+        }
+      });
+    });
+
+    // MÉTODO 1: Enviar para o FormSubmit (e-mail)
+    // ==========================================
+
+    // Criar um formulário oculto para enviar os dados
+    const hiddenForm = document.createElement("form");
+    hiddenForm.method = "POST";
+    hiddenForm.action = "https://formsubmit.co/niraslab.dev@gmail.com"; // E-mail configurado
+    hiddenForm.style.display = "none";
+
+    // Adicionar os campos ao formulário
+    Object.keys(formData).forEach((key) => {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = key;
+      input.value = formData[key];
+      hiddenForm.appendChild(input);
+    });
+
+    // Configurações adicionais do FormSubmit
+    const configFields = [
+      { name: "_subject", value: "Nova Inscrição Ibira Runners" },
+      { name: "_captcha", value: "false" },
+      { name: "_template", value: "table" },
+      { name: "_next", value: window.location.href + "#mensagem-sucesso" },
+    ];
+
+    configFields.forEach((field) => {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = field.name;
+      input.value = field.value;
+      hiddenForm.appendChild(input);
+    });
+
+    // MÉTODO 2: Enviar para o Google Sheets (se disponível)
+    // ====================================================
+
+    // Verificar se o FormSubmitter está disponível (arquivo form-submit-sheets.js carregado)
+    if (
+      window.FormSubmitter &&
+      typeof window.FormSubmitter.sendToGoogleSheets === "function"
+    ) {
+      try {
+        // Enviar para Google Sheets em segundo plano
+        window.FormSubmitter.sendToGoogleSheets(formData)
+          .then((success) => {
+            console.log(
+              "Envio para Google Sheets:",
+              success ? "sucesso" : "falha"
+            );
+          })
+          .catch((error) => {
+            console.error("Erro ao enviar para Google Sheets:", error);
+          });
+      } catch (error) {
+        console.error("Erro ao tentar usar o FormSubmitter:", error);
+      }
+    }
+
+    // Adicionar o formulário ao documento e enviar
+    document.body.appendChild(hiddenForm);
+
+    // Enviar o formulário para o FormSubmit
+    hiddenForm.submit();
   }
 
   // Eventos de clique para os botões
